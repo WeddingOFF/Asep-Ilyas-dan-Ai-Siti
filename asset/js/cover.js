@@ -1,50 +1,36 @@
-
-  function bukaUndangan() {
-    // 1. Cari elemen cover berdasarkan class-nya
-    const coverSection = document.querySelector('.cover-section');
-    
-    // 2. Jika elemen cover ditemukan, tambahkan class 'hidden' untuk memicu animasi gerbang terbuka
-    if (coverSection) {
-      coverSection.classList.add('hidden');
-    }
-
-    // 3. Tambahkan class 'buka-scroll' ke tag <body> untuk mengaktifkan kembali fungsi scroll halaman
-    document.body.classList.add('buka-scroll');
-
-
-    function bukaUndangan() {
+function bukaUndangan() {
+  // 1. Ambil elemen-elemen yang dibutuhkan
   const coverSection = document.querySelector('.cover-section');
-  const musik = document.getElementById('musikUndangan'); // Ambil elemen musik
+  const body = document.body;
+  const audio = document.getElementById('musikUndangan'); // Pastikan ID di HTML sama!
 
+  // 2. Sembunyikan cover (animasi gerbang)
   if (coverSection) {
     coverSection.classList.add('hidden');
   }
 
-  document.body.classList.add('buka-scroll');
+  // 3. Aktifkan scroll
+  body.classList.add('buka-scroll');
 
-    }
-
+  // 4. Putar Musik (music.mp3)
+  if (audio) {
+    // Kita paksa volume ke 100% dan putar
+    audio.volume = 1.0; 
+    audio.play().then(() => {
+      console.log("Musik berhasil diputar!");
+    }).catch(error => {
+      console.error("Musik gagal diputar karena kebijakan browser: ", error);
+    });
   }
 
-  // MULAI PUTAR MUSIK
-  if (musik) {
-    musik.play();
-  }
-
+  // 5. Geser ke Section Ayat dengan jeda sedikit
   setTimeout(() => {
-    const sectionAyat = document.querySelector('#ayat'); 
+    const sectionAyat = document.getElementById('ayat'); 
     if (sectionAyat) {
       sectionAyat.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
     }
-  }, 500); 
+  }, 600); // Jeda 0.6 detik
 }
-    // --- TIPS AUDIO ---
-    // Jika nanti kamu mau menambahkan musik latar otomatis berputar pas gerbang kebuka,
-    // kamu tinggal taruh kode pemutar audionya di bawah sini, contoh:
-    // let audio = document.getElementById("myAudio");
-    // audio.play();
-  }
-
