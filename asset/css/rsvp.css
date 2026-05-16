@@ -1,0 +1,273 @@
+/* SECTION RSVP */
+.rsvp-section{
+  width:100%;
+  min-height:100vh;
+
+  background:linear-gradient(
+    180deg,
+    #071427,
+    #0b1f3a,
+    #071427
+  );
+
+  position:relative;
+  overflow:hidden;
+
+  padding:90px 20px;
+}
+
+/* GLOW */
+.rsvp-glow{
+  position:absolute;
+
+  width:400px;
+  height:400px;
+
+  background:#ffd76a;
+
+  border-radius:50%;
+
+  filter:blur(150px);
+
+  opacity:0.10;
+
+  top:50%;
+  left:50%;
+
+  transform:translate(-50%,-50%);
+}
+
+/* CONTAINER */
+.rsvp-container{
+  position:relative;
+  z-index:5;
+
+  max-width:900px;
+  margin:auto;
+}
+
+/* TITLE */
+.rsvp-title{
+  text-align:center;
+
+  font-size:34px;
+  color:#ffd76a;
+
+  margin-bottom:50px;
+
+  text-shadow:
+    0 0 18px rgba(255,215,106,0.35);
+}
+
+/* ATTENDANCE */
+.attendance-wrapper{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+
+  gap:20px;
+
+  margin-bottom:90px;
+}
+
+/* BOX */
+.attendance-box{
+  background:
+    rgba(255,255,255,0.06);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius:28px;
+
+  padding:35px 20px;
+
+  text-align:center;
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.35),
+    inset 0 1px 1px rgba(255,255,255,0.08);
+
+  position:relative;
+  overflow:hidden;
+}
+
+/* LIGHT EFFECT */
+.attendance-box::before{
+  content:'';
+
+  position:absolute;
+
+  width:120px;
+  height:120px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border-radius:50%;
+
+  filter:blur(35px);
+
+  top:-50px;
+  right:-40px;
+}
+
+/* ANGKA */
+.attendance-box h3{
+  font-size:42px;
+  color:#ffd76a;
+
+  margin-bottom:10px;
+
+  position:relative;
+  z-index:2;
+}
+
+/* TEXT */
+.attendance-box p{
+  color:#eef3ff;
+  font-size:15px;
+
+  position:relative;
+  z-index:2;
+}
+
+/* UCAPAN */
+.wish-section{
+  background:
+    rgba(255,255,255,0.05);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius:35px;
+
+  padding:45px 30px;
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.35);
+}
+
+/* TITLE */
+.wish-title{
+  text-align:center;
+
+  font-size:30px;
+  color:#ffd76a;
+
+  margin-bottom:40px;
+}
+
+/* FORM */
+.wish-form{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+/* INPUT */
+.input-group input,
+.input-group select,
+.input-group textarea{
+  width:100%;
+
+  padding:18px 20px;
+
+  border:none;
+  outline:none;
+
+  border-radius:20px;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  color:white;
+
+  font-size:15px;
+
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.04);
+}
+
+/* PLACEHOLDER */
+.input-group input::placeholder,
+.input-group textarea::placeholder{
+  color:#cfdcff;
+}
+
+/* SELECT */
+.input-group select{
+  color:#ffffff;
+}
+
+/* TEXTAREA */
+.input-group textarea{
+  resize:none;
+  min-height:150px;
+}
+
+/* BUTTON */
+.send-btn{
+  border:none;
+  outline:none;
+
+  padding:18px;
+
+  border-radius:22px;
+
+  background:linear-gradient(
+    135deg,
+    #ffd76a,
+    #fff3c2
+  );
+
+  color:#071427;
+
+  font-size:17px;
+  font-weight:700;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 0 25px rgba(255,215,106,0.35),
+    0 0 45px rgba(255,255,255,0.12);
+
+  transition:0.3s;
+}
+
+/* HOVER */
+.send-btn:hover{
+  transform:translateY(-3px);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+  .attendance-wrapper{
+    grid-template-columns:1fr;
+  }
+
+  .rsvp-title{
+    font-size:28px;
+  }
+
+  .wish-title{
+    font-size:25px;
+  }
+
+  .wish-section{
+    padding:35px 20px;
+  }
+
+}
