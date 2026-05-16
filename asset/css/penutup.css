@@ -1,0 +1,109 @@
+/* --- BASE & BACKGROUND --- */
+.closing-section {
+  background-color: #0b132b; /* Warna Biru Navy senada */
+  color: #ffffff;
+  position: relative;
+  padding: 6rem 2rem 3rem 2rem; /* Padding bawah sedikit dikecilkan untuk area copyright */
+  overflow: hidden;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- GLOW EFFECT --- */
+.closing-glow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.closing-container {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* --- KOTAK GLASSMORPHISM PENUTUP --- */
+.closing-card.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid rgba(255, 255, 255, 0.55); /* Pantulan cahaya putih atas khas kaca */
+  border-radius: 24px; /* Sudut lengkungan dibuat lebih halus & besar */
+  padding: 4rem 3rem;
+  box-shadow: 0 15px 45px 0 rgba(0, 0, 0, 0.4), inset 0 0 25px rgba(255, 255, 255, 0.12);
+  margin-bottom: 5rem;
+}
+
+/* --- STYLE UNGKAPAN BAHAGIA --- */
+.closing-quote {
+  font-size: 1.1rem;
+  line-height: 2;
+  color: #cbd5e1;
+  max-width: 650px;
+  margin: 0 auto 3rem auto;
+  font-style: italic;
+}
+
+/* --- TERIMA KASIH & NAMA PENGANTIN --- */
+.closing-thanks h3 {
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #e2e8f0;
+  margin: 0 0 0.5rem 0;
+}
+
+.couple-names {
+  font-size: 3rem; /* Nama pengantin dibuat besar dan menonjol */
+  font-family: Georgia, serif;
+  color: #ffd700; /* Warna Emas mewah */
+  margin: 0;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+/* --- COPYRIGHT --- */
+.copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+}
+
+.copyright p {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+  .closing-section {
+    padding: 4rem 1.5rem 2rem 1.5rem;
+  }
+
+  .closing-card.glass-card {
+    padding: 3rem 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .closing-quote {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .closing-thanks h3 {
+    font-size: 1.2rem;
+  }
+
+  .couple-names {
+    font-size: 2.3rem;
+  }
+}
