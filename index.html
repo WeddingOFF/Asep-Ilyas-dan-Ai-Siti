@@ -18,7 +18,14 @@
 <body>
 
   <!-- COVER -->
-  <section class="cover">
+ <section class="cover-section"> <!-- Menggunakan class utama yang sinkron dengan CSS gerbang -->
+
+  <!-- 1. PANEL GERBANG (Harus di paling atas setelah section agar menjadi latar belakang) -->
+  <div class="gate-panel gate-left"></div>
+  <div class="gate-panel gate-right"></div>
+
+  <!-- 2. KONTEN UTAMA (Semua teks, foto, dan tombol dibungkus di sini agar tidak ikut terbelah) -->
+  <div class="cover-content">
 
     <!-- Glow -->
     <div class="glow glow1"></div>
@@ -30,54 +37,36 @@
     <img src="assets/img/bottom-left.png" class="corner bottom-left" alt="">
     <img src="assets/img/bottom-right.png" class="corner bottom-right" alt="">
 
-    <div class="cover-content">
+    <!-- Text Atas -->
+    <p class="welcome-text">Welcome To</p>
+    <h2 class="title-text">The Wedding Of</h2>
 
-      <!-- Text Atas -->
-      <p class="welcome-text">Welcome To</p>
-
-      <h2 class="title-text">The Wedding Of</h2>
-
-      <!-- Foto Bulat -->
-      <div class="photo-wrapper">
-
-        <img src="assets/img/pasangan.jpeg" class="couple-photo" alt="">
-
-        <!-- Hiasan bunga -->
-        <img src="assets/img/flower-frame.png" class="photo-flower" alt="">
-
-      </div>
-
-      <!-- Nama -->
-      <h1 class="couple-name">
-        Asep Ilyas & Ai Siti
-      </h1>
-
-      <!-- Tanggal -->
-      <p class="save-date">
-        Save The Date<br>
-        07 Juni 2026
-      </p>
-
-      <!-- Tombol -->
-     <!-- Tag pembuka section cover kamu -->
-  <section class="cover-section">
-    
-    <!-- 1. TAMBAHKAN DUA PANEL GERBANG INI -->
-    <div class="gate-panel gate-left"></div>
-    <div class="gate-panel gate-right"></div>
-
-    <!-- 2. Semua isi konten (teks, nama, tombol) dibungkus di sini agar tidak ikut terbelah -->
-    <div class="cover-content">
-      
-      <!-- Konten cover kamu (Judul, Nama Pengantin, dll) ada di sini -->
-
-      <button class="open-btn" onclick="bukaUndangan()">
-        Buka Undangan
-      </button>
-
+    <!-- Foto Bulat -->
+    <div class="photo-wrapper">
+      <img src="assets/img/pasangan.jpeg" class="couple-photo" alt="">
+      <!-- Hiasan bunga -->
+      <img src="assets/img/flower-frame.png" class="photo-flower" alt="">
     </div>
 
-  </section>
+    <!-- Nama -->
+    <h1 class="couple-name">
+      Asep Ilyas & Ai Siti
+    </h1>
+
+    <!-- Tanggal -->
+    <p class="save-date">
+      Save The Date<br>
+      07 Juni 2026
+    </p>
+
+    <!-- Tombol Buka Undangan (Sudah masuk ke dalam satu container konten) -->
+    <button class="open-btn" onclick="bukaUndangan()">
+      Buka Undangan
+    </button>
+
+  </div> <!-- Penutup cover-content -->
+
+</section> <!-- Penutup cover-section -->
 
   <!-- SECTION AYAT -->
 <section class="ayat-section">
