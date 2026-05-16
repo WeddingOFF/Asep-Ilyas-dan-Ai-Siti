@@ -137,7 +137,7 @@
   letter-spacing:2px;
 }
 
-/* WRAPPER 4 KOTAK */
+/* WRAPPER */
 .countdown-wrapper{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -152,50 +152,56 @@
 .time-box{
   position:relative;
 
-  padding:30px 15px;
+  padding:32px 15px;
 
-  border-radius:24px;
+  border-radius:28px;
 
   background:
-    rgba(255,255,255,0.08);
+    rgba(255,255,255,0.06);
 
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
 
   border:
-    1px solid rgba(255,255,255,0.12);
+    1px solid rgba(255,255,255,0.08);
 
   box-shadow:
-    0 8px 30px rgba(0,0,0,0.2),
-    inset 0 1px 1px rgba(255,255,255,0.08);
+    0 10px 35px rgba(0,0,0,0.45),
+    inset 0 1px 1px rgba(255,255,255,0.12),
+    inset 0 -1px 1px rgba(0,0,0,0.2);
 
   overflow:hidden;
 }
 
-/* EFEK CAHAYA */
+/* EFEK CAHAYA PUTIH */
 .time-box::before{
   content:'';
 
   position:absolute;
 
-  width:80px;
-  height:80px;
+  width:120px;
+  height:120px;
 
   background:
-    rgba(255,215,106,0.15);
+    rgba(255,255,255,0.12);
 
   border-radius:50%;
 
-  filter:blur(25px);
+  filter:blur(35px);
 
-  top:-20px;
-  right:-20px;
+  top:-60px;
+  right:-40px;
 }
 
 /* ANGKA */
 .time-box h2{
-  font-size:46px;
+  font-size:48px;
+  font-weight:700;
+
   color:#ffd76a;
+
+  text-shadow:
+    0 0 15px rgba(255,215,106,0.35);
 
   margin-bottom:10px;
 
@@ -206,9 +212,9 @@
 /* TEXT */
 .time-box span{
   font-size:14px;
-  color:#e7eeff;
-
   letter-spacing:1px;
+
+  color:#eef3ff;
 
   position:relative;
   z-index:2;
@@ -221,12 +227,8 @@
     grid-template-columns:repeat(2,1fr);
   }
 
-  .time-box{
-    padding:25px 10px;
-  }
-
   .time-box h2{
-    font-size:34px;
+    font-size:36px;
   }
 
 }
