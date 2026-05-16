@@ -10,6 +10,7 @@
    <link rel="stylesheet" href="asset/css/pembukaan.css">
    <link rel="stylesheet" href="asset/css/lokasi.css">
    <link rel="stylesheet" href="asset/css/maps.css">
+   <link rel="stylesheet" href="asset/css/rsvp.css">
   
 </head>
 <body>
@@ -312,6 +313,103 @@
 
   </div>
 </section>  
+
+
+  <!-- SECTION RSVP -->
+<section class="rsvp-section">
+
+  <!-- Glow -->
+  <div class="rsvp-glow"></div>
+
+  <div class="rsvp-container">
+
+    <!-- Judul -->
+    <h2 class="rsvp-title">
+      Konfirmasi Kehadiran
+    </h2>
+
+    <!-- Statistik -->
+    <div class="attendance-wrapper">
+
+      <!-- Hadir -->
+      <div class="attendance-box">
+        <h3 id="hadirCount">0</h3>
+        <p>Hadir</p>
+      </div>
+
+      <!-- Tidak Hadir -->
+      <div class="attendance-box">
+        <h3 id="tidakHadirCount">0</h3>
+        <p>Tidak Hadir</p>
+      </div>
+
+      <!-- Total -->
+      <div class="attendance-box">
+        <h3 id="totalCount">0</h3>
+        <p>Total Hadir</p>
+      </div>
+
+    </div>
+
+    <!-- Ucapan -->
+    <div class="wish-section">
+
+      <h2 class="wish-title">
+        💌 Ucapan & Doa
+      </h2>
+
+      <!-- Form -->
+      <form class="wish-form">
+
+        <!-- Nama -->
+        <div class="input-group">
+          <input 
+            type="text" 
+            placeholder="Nama Lengkap"
+            id="nama"
+          >
+        </div>
+
+        <!-- Kehadiran -->
+        <div class="input-group">
+          <select id="kehadiran">
+
+            <option value="">
+              Konfirmasi Kehadiran
+            </option>
+
+            <option value="hadir">
+              Hadir
+            </option>
+
+            <option value="tidak-hadir">
+              Tidak Hadir
+            </option>
+
+          </select>
+        </div>
+
+        <!-- Pesan -->
+        <div class="input-group">
+          <textarea 
+            id="pesan"
+            rows="5"
+            placeholder="Tulis ucapan dan doa terbaik..."
+          ></textarea>
+        </div>
+
+        <!-- Tombol -->
+        <button type="submit" class="send-btn">
+          Kirim Pesan
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
 
 </body>
 </html>
