@@ -1,4 +1,4 @@
-<script>
+
   function bukaUndangan() {
     // 1. Cari elemen cover berdasarkan class-nya
     const coverSection = document.querySelector('.cover-section');
@@ -17,4 +17,4 @@
     // let audio = document.getElementById("myAudio");
     // audio.play();
   }
-</script>
+
