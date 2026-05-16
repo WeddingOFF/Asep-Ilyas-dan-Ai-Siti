@@ -1,0 +1,233 @@
+/* --- BASE & BACKGROUND --- */
+.event-section {
+  background-color: #0b132b; /* Warna Biru Navy serasi dengan section pengantin */
+  color: #ffffff;
+  position: relative;
+  padding: 5rem 2rem;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- GLOW EFFECT BEHIND CONTENT --- */
+.event-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.event-container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* --- INFORMASI ACARA (ATAS TENGAH) --- */
+.event-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.event-header h2 {
+  font-size: 2.5rem;
+  font-family: Georgia, serif;
+  color: #ffffff;
+  margin: 0 0 1rem;
+  letter-spacing: 1px;
+}
+
+.event-header p {
+  font-size: 1rem;
+  color: #cbd5e1;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- REUSABLE GLASSMORPHISM CARD (AKAD, RESEPSI, LOKASI) --- */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05); /* Latar transparan putih tipis */
+  backdrop-filter: blur(15px); /* Efek blur kaca halus */
+  -webkit-backdrop-filter: blur(15px); /* Dukungan Safari */
+  border: 1px solid rgba(255, 255, 255, 0.35); /* Garis luar putih transparan */
+  border-top: 2px solid rgba(255, 255, 255, 0.6); /* Efek pantulan cahaya putih di atas */
+  border-radius: 16px;
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.15); /* Shadow luar & glow cahaya putih di dalam */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 45px 0 rgba(0, 0, 0, 0.5), inset 0 0 25px rgba(255, 255, 255, 0.25);
+}
+
+/* --- BARIS AKAD & RESEPSI (KIRI & KANAN) --- */
+.event-row-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.event-card {
+  flex: 1;
+  max-width: 420px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+/* Komponen dalam Card Akad & Resepsi */
+.card-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+.card-title-wrapper h3 {
+  font-size: 1.8rem;
+  font-family: Georgia, serif;
+  margin: 0;
+  color: #ffffff;
+}
+
+.card-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.4), rgba(255,255,255,0));
+  margin: 1.5rem 0;
+}
+
+.card-body .event-date {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffd700; /* Warna Emas agar serasi dengan angka countdown */
+  margin: 0 0 0.5rem;
+}
+
+.card-body .event-time {
+  font-size: 1rem;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+/* --- KOTAK LOKASI & ALAMAT (BAWAH) --- */
+.event-location-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.location-card {
+  width: 100%;
+  max-width: 865px; /* Menyesuaikan lebar total gabungan card atas */
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.location-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.location-icon {
+  font-size: 2.5rem;
+  animation: bounce 2s infinite; /* Efek ikon maps membal */
+}
+
+.location-header h3 {
+  font-size: 1.6rem;
+  font-family: Georgia, serif;
+  margin: 0;
+  color: #ffffff;
+}
+
+.location-body .address-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+/* --- PETUNJUK ARAH KE BAWAH --- */
+.location-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.arrow-text {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.animated-arrow {
+  font-size: 1.8rem;
+  color: #ffd700; /* Warna Emas */
+  font-weight: bold;
+  animation: slideDown 1.5s infinite; /* Efek panah bergerak ke bawah */
+}
+
+/* --- KEYFRAMES ANIMASI --- */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-5px); opacity: 0.3; }
+  50% { transform: translateY(5px); opacity: 1; }
+  100% { transform: translateY(-5px); opacity: 0.3; }
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+  .event-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .event-header h2 {
+    font-size: 2rem;
+  }
+
+  .event-row-cards {
+    flex-direction: column; /* Ubah akad & resepsi jadi berjejer ke bawah di HP */
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .event-card {
+    width: 100%;
+    padding: 2rem 1.5rem;
+  }
+
+  .location-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .location-header h3 {
+    font-size: 1.4rem;
+  }
+
+  .location-body .address-text {
+    font-size: 1rem;
+  }
+}
