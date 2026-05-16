@@ -254,10 +254,27 @@
 /* RESPONSIVE */
 @media(max-width:768px){
 
+  /* PAKSA TETAP 3 KOLOM KESAMPING */
   .attendance-wrapper{
-    grid-template-columns:1fr;
+    grid-template-columns: repeat(3, 1fr); /* Paksa 3 kolom */
+    gap: 8px; /* Jarak antar kotak dikecilkan agar muat di HP */
   }
 
+  /* KECILKAN UKURAN KOTAK & TEKS AGAR TIDAK MELUBER DI HP */
+  .attendance-box{
+    padding: 15px 5px; /* Kurangi padding agar kotak tidak membesar */
+  }
+
+  .attendance-box h3{
+    font-size: 22px; /* Kecilkan angka */
+    margin-bottom: 5px;
+  }
+
+  .attendance-box p{
+    font-size: 11px; /* Kecilkan teks "Hadir/Tidak" */
+  }
+
+  /* --- Sisa kode bawaanmu di bawah ini --- */
   .rsvp-title{
     font-size:28px;
   }
@@ -269,5 +286,4 @@
   .wish-section{
     padding:35px 20px;
   }
-
 }
