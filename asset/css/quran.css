@@ -1,0 +1,117 @@
+/* SECTION AYAT */
+.ayat-section{
+  width:100%;
+  min-height:100vh;
+  background:linear-gradient(
+    180deg,
+    #071427,
+    #0b1f3a,
+    #071427
+  );
+
+  position:relative;
+  overflow:hidden;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:80px 25px;
+}
+
+/* GLOW */
+.ayat-glow{
+  position:absolute;
+  width:350px;
+  height:350px;
+  background:#ffd76a;
+  border-radius:50%;
+  filter:blur(140px);
+
+  opacity:0.15;
+
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+/* ORNAMEN */
+.ornament{
+  position:absolute;
+  width:180px;
+  height:180px;
+
+  border:1px solid rgba(255,215,106,0.15);
+  border-radius:50%;
+}
+
+.ornament-top{
+  top:-70px;
+  right:-70px;
+}
+
+.ornament-bottom{
+  bottom:-70px;
+  left:-70px;
+}
+
+/* CONTENT */
+.ayat-content{
+  position:relative;
+  z-index:5;
+
+  max-width:800px;
+  text-align:center;
+  color:white;
+}
+
+/* LABEL */
+.ayat-label{
+  font-size:15px;
+  letter-spacing:3px;
+  color:#ffd76a;
+
+  margin-bottom:35px;
+}
+
+/* AYAT ARAB */
+.ayat-arab{
+  font-size:34px;
+  line-height:2.2;
+
+  color:#ffe08a;
+
+  font-weight:500;
+
+  margin-bottom:40px;
+
+  text-shadow:
+    0 0 15px rgba(255,215,106,0.35);
+}
+
+/* TERJEMAH */
+.ayat-translate{
+  font-size:17px;
+  line-height:2;
+
+  color:#e7edf9;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+  .ayat-section{
+    padding:70px 20px;
+  }
+
+  .ayat-arab{
+    font-size:26px;
+    line-height:2;
+  }
+
+  .ayat-translate{
+    font-size:15px;
+    line-height:1.9;
+  }
+
+}
