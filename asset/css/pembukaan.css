@@ -45,97 +45,125 @@
 .intro-text {
   font-size: 1rem;
   line-height: 1.8;
-  max-width: 650px;
+  max-width: 750px;
   margin: 0 auto 4rem;
-  color: #cbd5e1; /* Warna putih keabu-abuan agar tidak terlalu mencolok */
+  color: #cbd5e1;
 }
 
-/* --- LAYOUT PENGANTIN --- */
+/* --- LAYOUT PENGANTIN (ZIG-ZAG) --- */
 .couple-wrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Menyusun ke bawah */
   gap: 4rem;
   margin-bottom: 5rem;
-  flex-wrap: wrap;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .couple-card {
   display: flex;
-  flex-direction: column;
   align-items: center;
   position: relative;
+  gap: 2.5rem; /* Jarak antara foto dan teks */
+  width: 100%;
 }
 
-/* --- GAMBAR PENGANTIN BULAT PAS --- */
+/* Pria (Atas Kiri) */
+.couple-card.groom {
+  flex-direction: row; /* Foto di kiri, teks di kanan */
+  text-align: left;
+}
+
+/* Wanita (Bawah Kanan) */
+.couple-card.bride {
+  flex-direction: row-reverse; /* Teks di kiri, foto di kanan */
+  text-align: right;
+}
+
+/* --- GAMBAR PENGANTIN BULAT PAS & FIGURA EMAS --- */
 .couple-image {
   width: 200px;
   height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid #ffffff; /* Figura bulat putih */
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
   position: relative;
   z-index: 2;
+  flex-shrink: 0;
 }
 
 .couple-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* KUNCI: Membuat gambar tidak gepeng dan pas di dalam lingkaran */
-  object-position: center; /* Fokus di tengah gambar */
-}
-
-/* --- DEKORASI BINGKAI (Opsional, efek lingkaran putar) --- */
-.frame-decoration {
-  position: absolute;
-  top: -12px;
-  left: -12px;
-  width: 220px;
-  height: 220px;
+  object-fit: cover;
+  object-position: center top;
   border-radius: 50%;
-  border: 1px dashed rgba(255, 255, 255, 0.6);
-  z-index: 1;
-  animation: spin 25s linear infinite;
+  border: 4px solid #ffd700; /* Warna Emas */
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.25); /* Glow Emas */
+  position: relative;
+  z-index: 2;
 }
 
-@keyframes spin {
-  100% { transform: rotate(360deg); }
+/* --- DEKORASI BUNGA MINIMALIS (CSS) --- */
+/* Menambahkan hiasan bunga tanpa merubah HTML */
+.couple-image::after {
+  content: '';
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  z-index: 3;
+  /* Icon Vector Bunga/Daun Emas sebagai placeholder */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffd700' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22c4-4 8-6 8-12A8 8 0 0 0 4 10c0 6 4 8 8 12z'/%3E%3Cpath d='M12 22V12'/%3E%3Cpath d='M12 16a4 4 0 0 0 4-4'/%3E%3Cpath d='M8 12a4 4 0 0 0 4 4'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));
+}
+
+/* Posisi bunga Pria (Kiri Bawah) */
+.couple-card.groom .couple-image::after {
+  bottom: -15px;
+  left: -25px;
+  transform: rotate(-15deg);
+}
+
+/* Posisi bunga Wanita (Kanan Bawah) */
+.couple-card.bride .couple-image::after {
+  bottom: -15px;
+  right: -25px;
+  transform: scaleX(-1) rotate(-15deg); /* Dibalik agar simetris */
 }
 
 /* --- INFO PENGANTIN --- */
 .couple-info {
-  margin-top: 1.5rem;
+  flex: 1;
 }
 
 .couple-info h2 {
-  font-size: 2rem;
-  margin: 0 0 0.5rem;
+  font-size: 2.5rem;
+  margin: 0 0 0.2rem;
   color: #ffffff;
-  font-family: Georgia, serif; /* Font yang lebih elegan untuk nama */
+  font-family: Georgia, serif;
 }
 
 .couple-info p {
-  margin: 0 0 0.3rem;
+  margin: 0 0 0.5rem;
   color: #94a3b8;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
 }
 
 .couple-info span {
-  font-weight: 600;
+  font-weight: 500;
   color: #e2e8f0;
   font-size: 1.1rem;
 }
 
 /* --- COUNTDOWN & GLASSMORPHISM --- */
 .countdown-section {
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 .countdown-label {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 2rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+  letter-spacing: 2px;
   color: #ffffff;
 }
 
@@ -148,11 +176,12 @@
 
 /* Efek Blur Glass Cahaya Putih */
 .time-box {
-  background: rgba(255, 255, 255, 0.05); /* Latar transparan putih */
-  backdrop-filter: blur(12px); /* Efek blur/kaca */
-  -webkit-backdrop-filter: blur(12px); /* Untuk Safari */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Border putih transparan */
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Garis batas kaca */
+  border-top: 2px solid rgba(255, 255, 255, 0.6); /* Efek pantulan cahaya atas */
+  border-radius: 12px;
   padding: 1.5rem;
   width: 90px;
   height: 90px;
@@ -160,41 +189,47 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-  /* Bayangan luar dan cahaya putih di dalam (inset) */
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.15); 
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.1); 
 }
 
-/* Font Angka */
+/* Font Angka Emas */
 .time-box h2 {
   margin: 0;
-  font-size: 2.2rem;
-  color: #ffd700; /* Warna Emas/Gold - Sangat cocok dengan Navy */
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4); /* Efek cahaya pada angka */
+  font-size: 2.5rem;
+  color: #ffd700; 
+  font-family: Georgia, serif;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
 .time-box span {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   margin-top: 0.5rem;
   color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
 }
 
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
-  .couple-wrapper {
-    gap: 3rem;
+  /* Di layar HP, ubah kembali ke susunan atas-bawah agar tidak penyok */
+  .couple-card.groom,
+  .couple-card.bride {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
   }
   
   .couple-image {
-    width: 160px;
-    height: 160px;
+    width: 170px;
+    height: 170px;
   }
 
-  .frame-decoration {
-    width: 180px;
-    height: 180px;
+  /* Mengubah posisi bunga untuk tampilan HP */
+  .couple-card.groom .couple-image::after,
+  .couple-card.bride .couple-image::after {
+    bottom: -10px;
+    left: -10px;
+    right: auto;
+    transform: none;
   }
   
   .time-box {
@@ -210,4 +245,9 @@
   .time-box span {
     font-size: 0.75rem;
   }
+}
+
+/* Hapus .frame-decoration dari CSS jika kamu tidak memakainya lagi (karena kita sudah pakai border langsung di img) */
+.frame-decoration {
+  display: none; 
 }
