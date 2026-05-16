@@ -1,180 +1,21 @@
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
+body {
   font-family: 'Poppins', sans-serif;
-  background:#071427;
-  overflow-x:hidden;
+  background: #071427;
+  overflow: hidden; /* Mengunci scroll halaman utama saat cover aktif */
 }
 
-/* COVER */
-.cover{
-  width:100%;
-  min-height:100vh;
-  background:linear-gradient(
-    180deg,
-    #071427,
-    #0b1f3a,
-    #071427
-  );
-  position:relative;
-  overflow:hidden;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:30px 20px;
+/* Membuka kembali fungsi scroll setelah cover terbuka via JS */
+body.buka-scroll {
+  overflow-y: auto;
 }
 
-/* GLOW */
-.glow{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(100px);
-  z-index:1;
-}
-
-.glow1{
-  width:300px;
-  height:300px;
-  background:#1f5eff;
-  top:-80px;
-  left:-80px;
-  opacity:0.35;
-}
-
-.glow2{
-  width:250px;
-  height:250px;
-  background:#3dbbff;
-  bottom:-80px;
-  right:-80px;
-  opacity:0.25;
-}
-
-/* BUNGA POJOK */
-.corner{
-  position:absolute;
-  width:170px;
-  z-index:2;
-  opacity:0.95;
-}
-
-.top-left{
-  top:0;
-  left:0;
-}
-
-.top-right{
-  top:0;
-  right:0;
-  transform:scaleX(-1);
-}
-
-.bottom-left{
-  bottom:0;
-  left:0;
-  transform:scaleY(-1);
-}
-
-.bottom-right{
-  bottom:0;
-  right:0;
-  transform:scale(-1);
-}
-
-/* CONTENT */
-.cover-content{
-  position:relative;
-  z-index:5;
-  text-align:center;
-  color:white;
-  max-width:400px;
-}
-
-/* TEXT */
-.welcome-text{
-  font-size:15px;
-  letter-spacing:3px;
-  margin-bottom:10px;
-  color:#d9e6ff;
-}
-
-.title-text{
-  font-size:28px;
-  font-weight:500;
-  margin-bottom:35px;
-}
-
-/* FOTO */
-.photo-wrapper{
-  width:250px;
-  height:250px;
-  margin:auto;
-  position:relative;
-  margin-bottom:30px;
-}
-
-.couple-photo{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:50%;
-  border:5px solid rgba(255,255,255,0.15);
-  box-shadow:
-    0 0 30px rgba(74,144,255,0.4);
-}
-
-/* BUNGA FOTO */
-.photo-flower{
-  position:absolute;
-  width:130px;
-  left:-20px;
-  bottom:-20px;
-}
-
-/* NAMA */
-.couple-name{
-  font-size:32px;
-  font-weight:600;
-  line-height:1.4;
-  margin-bottom:20px;
-}
-
-/* TANGGAL */
-.save-date{
-  font-size:15px;
-  line-height:1.8;
-  color:#dce7ff;
-  margin-bottom:35px;
-}
-
-/* BUTTON */
-.open-btn{
-  padding:14px 35px;
-  border:none;
-  border-radius:50px;
-  background:linear-gradient(
-    135deg,
-    #2f7bff,
-    #63c7ff
-  );
-
-  color:white;
-  font-size:15px;
-  font-weight:600;
-  cursor:pointer;
-
-  box-shadow:
-    0 0 20px rgba(74,144,255,0.45);
-
-  transition:0.3s;
-}
-
-/* --- CONFIGURATION COVER UTAMA --- */
+/* --- SECTION COVER UTAMA --- */
 .cover-section {
   position: fixed; /* Membuka cover sebagai lapisan mutlak di atas seluruh halaman */
   top: 0;
@@ -186,17 +27,6 @@ body{
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* --- KONTEN DI DALAM COVER --- */
-.cover-content {
-  position: relative;
-  z-index: 10; /* Berada di atas panel gerbang */
-  text-align: center;
-  color: #ffffff;
-  padding: 2rem;
-  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 /* --- STRUKTUR GERBANG TERBELAH (LEFT & RIGHT PANEL) --- */
@@ -205,48 +35,148 @@ body{
   top: 0;
   width: 50%; /* Masing-masing panel mengambil setengah lebar layar */
   height: 100%;
-  background-color: #0b132b; /* Warna Biru Navy */
-  z-index: 5;
+  background: linear-gradient(180deg, #071427, #0b1f3a, #071427); /* Menggunakan warna gradasi navy asli kamu */
+  z-index: 5; /* Di bawah konten */
   transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); /* Efek pergerakan gerbang yang elegan */
-  
-  /* Efek cahaya putih lembut di tengah pertemuan gerbang */
   box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.03); 
 }
 
 /* Posisi Gerbang Kiri */
 .gate-left {
   left: 0;
-  border-right: 1px solid rgba(255, 255, 255, 0.1); /* Garis samar di tengah saat gerbang tertutup */
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Posisi Gerbang Kanan */
 .gate-right {
   right: 0;
-  border-left: 1px solid rgba(255, 255, 255, 0.1); /* Garis samar di tengah saat gerbang tertutup */
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* --- STYLE TOMBOL BUKA UNDANGAN --- */
-.open-btn {
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 0.9rem 2.2rem;
-  font-size: 1rem;
+/* --- KONTEN DI DALAM COVER (BUNGA, FOTO, TEKS, TOMBOL) --- */
+.cover-content {
+  position: relative;
+  z-index: 999; /* DINAIKKAN PALING ATAS AGAR BISA DIKLIK */
+  text-align: center;
+  color: white;
+  max-width: 400px;
+  padding: 20px;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* GLOW */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+}
+
+.glow1 {
+  width: 300px;
+  height: 300px;
+  background: #1f5eff;
+  top: -80px;
+  left: -80px;
+  opacity: 0.35;
+}
+
+.glow2 {
+  width: 250px;
+  height: 250px;
+  background: #3dbbff;
+  bottom: -80px;
+  right: -80px;
+  opacity: 0.25;
+}
+
+/* BUNGA POJOK */
+.corner {
+  position: absolute;
+  width: 170px;
+  z-index: 2;
+  opacity: 0.95;
+}
+
+.top-left { top: 0; left: 0; }
+.top-right { top: 0; right: 0; transform: scaleX(-1); }
+.bottom-left { bottom: 0; left: 0; transform: scaleY(-1); }
+.bottom-right { bottom: 0; right: 0; transform: scale(-1); }
+
+/* TEXT */
+.welcome-text {
+  font-size: 15px;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+  color: #d9e6ff;
+}
+
+.title-text {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 35px;
+}
+
+/* FOTO */
+.photo-wrapper {
+  width: 250px;
+  height: 250px;
+  margin: auto;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.couple-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid rgba(255,255,255,0.15);
+  box-shadow: 0 0 30px rgba(74, 144, 255, 0.4);
+}
+
+/* BUNGA FOTO */
+.photo-flower {
+  position: absolute;
+  width: 130px;
+  left: -20px;
+  bottom: -20px;
+}
+
+/* NAMA */
+.couple-name {
+  font-size: 32px;
   font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+/* TANGGAL */
+.save-date {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #dce7ff;
+  margin-bottom: 35px;
+}
+
+/* TOMBOL BUKA UNDANGAN (Desain Gradasi Biru Asli Kamu) */
+.open-btn {
+  padding: 14px 35px;
+  border: none;
   border-radius: 50px;
+  background: linear-gradient(135deg, #2f7bff, #63c7ff);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  margin-top: 1.5rem;
+  box-shadow: 0 0 20px rgba(74, 144, 255, 0.45);
+  transition: 0.3s;
+  display: inline-block;
 }
 
 /* Efek Hover Tombol */
 .open-btn:hover {
-  background: #ffffff;
-  color: #0b132b;
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 30px rgba(99, 199, 255, 0.75);
   transform: scale(1.05);
 }
 
@@ -256,7 +186,7 @@ body{
 .cover-section.hidden .cover-content {
   opacity: 0;
   transform: scale(0.95);
-  pointer-events: none; /* Mencegah tombol diklik kembali */
+  pointer-events: none;
 }
 
 /* 2. Gerbang Kiri Meluncur Keluar ke Arah Kiri */
@@ -273,15 +203,5 @@ body{
 .cover-section.hidden {
   pointer-events: none;
   visibility: hidden;
-  transition: visibility 0s linear 1.2s; /* Menunggu gerbang selesai meluncur selama 1.2 detik */
-}
-
-/* --- KUNCI SCROLL AWAL --- */
-body {
-  overflow: hidden; /* Mengunci scroll halaman utama saat cover aktif */
-}
-
-/* Membuka kembali fungsi scroll setelah cover terbuka */
-body.buka-scroll {
-  overflow-y: auto;
+  transition: visibility 0s linear 1.2s; 
 }
