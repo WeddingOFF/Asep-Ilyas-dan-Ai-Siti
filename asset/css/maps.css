@@ -1,0 +1,97 @@
+/* --- BASE & BACKGROUND --- */
+.maps-section {
+  background-color: #0b132b; /* Warna Biru Navy serasi */
+  padding: 0 2rem 5rem 2rem; /* Padding atas sengaja 0 agar menyambung dari petunjuk arah section sebelumnya */
+  position: relative;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.maps-container {
+  position: relative;
+  z-index: 1;
+  max-width: 865px; /* Lebar disamakan dengan kotak lokasi di atasnya agar rapi */
+  margin: 0 auto;
+}
+
+/* --- BINGKAI PETA DENGAN EFEK KACA & CAHAYA PUTIH --- */
+.maps-wrapper.glass-card {
+  background: rgba(255, 255, 255, 0.05); /* Transparan putih tipis */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.35); /* Garis luar putih */
+  border-top: 2px solid rgba(255, 255, 255, 0.6); /* Pantulan cahaya putih di sisi atas */
+  border-radius: 16px;
+  padding: 1rem; /* Jarak antara peta dan bingkai kaca */
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.15); /* Cahaya putih di bagian dalam border */
+  overflow: hidden;
+}
+
+/* Mengatur sudut melengkung pada iframe peta agar pas di dalam bingkai */
+.maps-wrapper iframe {
+  border-radius: 10px;
+  display: block;
+  filter: grayscale(10%) contrast(105%); /* Opsional: Membuat warna peta sedikit lebih menyatu dengan tema gelap */
+}
+
+/* --- TOMBOL NAVIGASI DI BAWAH PETA --- */
+.maps-action {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.btn-maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: rgba(255, 255, 255, 0.08); /* Tombol bergaya semi-glassmorphism */
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 1rem 2.5rem;
+  border-radius: 50px; /* Bentuk kapsul bulatan penuh */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Efek Hover saat tombol disentuh kursor */
+.btn-maps:hover {
+  background: #ffffff; /* Berubah menjadi putih terang */
+  color: #0b132b; /* Teks berubah menjadi biru navy */
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3); /* Efek kilau cahaya putih di luar tombol */
+  transform: translateY(-3px);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-maps:hover .btn-icon {
+  transform: scale(1.2) rotate(5deg); /* Efek icon membesar sedikit saat di-hover */
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+  .maps-section {
+    padding: 0 1.5rem 4rem 1.5rem;
+  }
+  
+  .maps-wrapper.glass-card {
+    padding: 0.7rem; /* Memperkecil border di layar HP */
+  }
+
+  .maps-wrapper iframe {
+    height: 300px; /* Mengurangi tinggi peta di layar HP agar tidak terlalu memakan layar */
+  }
+
+  .btn-maps {
+    width: 100%; /* Tombol melebar penuh di layar HP agar mudah ditekan jari */
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
