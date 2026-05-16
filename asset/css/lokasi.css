@@ -28,6 +28,7 @@
 }
 
 /* --- 1. ANIMASI TERBIT (HEADER) --- */
+/* --- 1. HEADER (TERBIT) --- */
 .event-header {
   opacity: 0;
   transform: translateY(30px);
@@ -39,39 +40,41 @@
   transform: translateY(0);
 }
 
-/* --- 2. ANIMASI GESER BERLAWANAN (AKAD & RESEPSI) --- */
+/* --- 2. AKAD & RESEPSI (GESER BERLAWANAN) --- */
 .event-row-cards {
   display: flex;
   gap: 1.5rem;
   margin: 3rem 0;
+  overflow: hidden; /* Biar gak muncul scrollbar pas geser */
 }
 
-.event-card {
-  flex: 1;
-  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+/* Kita tembak langsung anak pertama (Akad) dan anak terakhir (Resepsi) */
+.event-row-cards .event-card {
   opacity: 0;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Akad (Kiri ke Kanan) */
+/* Akad: Geser dari Kiri (-100px) */
 .event-row-cards .event-card:first-child {
   transform: translateX(-100px);
 }
 
-/* Resepsi (Kanan ke Kiri) */
+/* Resepsi: Geser dari Kanan (100px) */
 .event-row-cards .event-card:last-child {
   transform: translateX(100px);
 }
 
+/* Saat section #event dapet class .muncul dari JS */
 #event.muncul .event-card {
   opacity: 1;
   transform: translateX(0) !important;
 }
 
-/* --- 3. ANIMASI TERBIT BAWAH KE ATAS (LOKASI) --- */
+/* --- 3. LOKASI (TERBIT DARI BAWAH) --- */
 .event-location-wrapper {
   opacity: 0;
   transform: translateY(50px);
-  transition: all 1s ease-out 0.8s; /* Muncul terakhir setelah box akad/resepsi */
+  transition: all 1s ease-out 0.8s; /* Muncul terakhir (delay 0.8 detik) */
 }
 
 #event.muncul .event-location-wrapper {
