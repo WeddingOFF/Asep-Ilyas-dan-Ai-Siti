@@ -140,27 +140,54 @@
 }
 
 /* --- RESPONSIVE MOBILE --- */
+/* --- RESPONSIVE MOBILE (PAKSA 2 KOLOM SEJAJAR) --- */
 @media (max-width: 768px) {
   .gift-section {
-    padding: 4rem 1.5rem;
+    padding: 3rem 1rem; /* Kurangi padding section agar ruang lebih luas */
   }
 
   .gift-header h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .gift-row {
-    flex-direction: column; /* Menjadi 1 kolom ke bawah di layar HP */
-    align-items: center;
-    gap: 1.5rem;
+    flex-direction: row !important; /* Paksa tetap ke samping */
+    justify-content: center;
+    gap: 0.75rem; /* Perkecil jarak antar kotak */
   }
 
   .gift-card.glass-card {
-    width: 100%;
-    padding: 2.5rem 1.5rem;
+    flex: 1; /* Bagi dua layar sama rata */
+    min-width: 0; /* WAJIB! Agar kotak mau mengecil mengikuti layar HP */
+    padding: 1.5rem 0.8rem; /* Sunat padding dalam agar ringkas */
+    border-radius: 12px;
   }
 
+  /* Kecilkan Logo Bank */
+  .bank-logo {
+    height: 30px;
+    margin-bottom: 1rem;
+  }
+
+  .bank-logo img {
+    max-width: 80px;
+  }
+
+  /* Kecilkan Angka Rekening agar tidak pecah baris */
   .account-number {
-    font-size: 1.7rem;
+    font-size: 1.1rem; /* Ukuran pas untuk HP di mode 2 kolom */
+    letter-spacing: 0;
+  }
+
+  .account-name {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Kecilkan Tombol Salin */
+  .btn-copy {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 6px;
   }
 }
