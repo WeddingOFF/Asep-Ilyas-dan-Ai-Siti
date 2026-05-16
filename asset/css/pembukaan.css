@@ -1,236 +1,213 @@
-/* SECTION PENGANTIN */
-.couple-section{
-  width:100%;
-  min-height:100vh;
-
-  background:linear-gradient(
-    180deg,
-    #071427,
-    #0b1f3a,
-    #071427
-  );
-
-  position:relative;
-  overflow:hidden;
-
-  padding:90px 20px;
+/* --- BASE & BACKGROUND --- */
+.couple-section {
+  background-color: #0b132b; /* Warna Biru Navy */
+  color: #ffffff;
+  position: relative;
+  padding: 5rem 2rem;
+  overflow: hidden;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* GLOW */
-.couple-glow{
-  position:absolute;
-  width:400px;
-  height:400px;
-
-  background:#ffd76a;
-
-  border-radius:50%;
-  filter:blur(150px);
-
-  opacity:0.12;
-
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
+/* --- GLOW EFFECT BEHIND CONTENT --- */
+.couple-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
 }
 
-/* CONTENT */
-.couple-content{
-  position:relative;
-  z-index:5;
-
-  max-width:1100px;
-  margin:auto;
-
-  text-align:center;
-  color:white;
+.couple-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* BASMALAH */
-.bismillah{
-  font-size:34px;
-  color:#ffd76a;
-
-  margin-bottom:30px;
-
-  text-shadow:
-    0 0 20px rgba(255,215,106,0.4);
+/* --- TYPOGRAPHY --- */
+.bismillah {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: normal;
 }
 
-/* SALAM */
-.salam{
-  font-size:28px;
-  line-height:1.8;
-
-  margin-bottom:30px;
-
-  color:#f3f6ff;
+.salam {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: normal;
 }
 
-/* INTRO */
-.intro-text{
-  max-width:800px;
-  margin:auto;
-
-  font-size:17px;
-  line-height:2;
-
-  color:#d9e4ff;
-
-  margin-bottom:90px;
+.intro-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 650px;
+  margin: 0 auto 4rem;
+  color: #cbd5e1; /* Warna putih keabu-abuan agar tidak terlalu mencolok */
 }
 
-/* WRAPPER */
-.couple-wrapper{
-  display:flex;
-  flex-direction:column;
-  gap:80px;
-
-  margin-bottom:100px;
+/* --- LAYOUT PENGANTIN --- */
+.couple-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-bottom: 5rem;
+  flex-wrap: wrap;
 }
 
-/* CARD */
-.couple-card{
-  display:flex;
-  align-items:center;
-  gap:40px;
-
-  position:relative;
+.couple-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
-/* WANITA */
-.bride{
-  justify-content:flex-end;
+/* --- GAMBAR PENGANTIN BULAT PAS --- */
+.couple-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #ffffff; /* Figura bulat putih */
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 2;
 }
 
-/* FOTO */
-.couple-image{
-  width:230px;
-  height:230px;
-
-  border-radius:50%;
-  overflow:hidden;
-
-  position:relative;
-  z-index:2;
-
-  border:5px solid rgba(255,255,255,0.12);
-
-  box-shadow:
-    0 0 35px rgba(255,215,106,0.25);
+.couple-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* KUNCI: Membuat gambar tidak gepeng dan pas di dalam lingkaran */
+  object-position: center; /* Fokus di tengah gambar */
 }
 
+/* --- DEKORASI BINGKAI (Opsional, efek lingkaran putar) --- */
+.frame-decoration {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.6);
+  z-index: 1;
+  animation: spin 25s linear infinite;
 }
 
-.couple-image img{
-  width:100%;
-
-
-  /* COUNTDOWN */
-.countdown-section{
-  margin-top:40px;
+@keyframes spin {
+  100% { transform: rotate(360deg); }
 }
 
-.countdown-label{
-  font-size:24px;
-  color:#ffd76a;
-
-  margin-bottom:40px;
-  letter-spacing:2px;
+/* --- INFO PENGANTIN --- */
+.couple-info {
+  margin-top: 1.5rem;
 }
 
-/* WRAPPER */
-.countdown-wrapper{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-
-  gap:18px;
-
-  max-width:650px;
-  margin:auto;
+.couple-info h2 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+  color: #ffffff;
+  font-family: Georgia, serif; /* Font yang lebih elegan untuk nama */
 }
 
-/* GLASS BOX */
-.time-box{
-  position:relative;
-
-  padding:32px 15px;
-
-  border-radius:28px;
-
-  background:
-    rgba(255,255,255,0.06);
-
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-
-  border:
-    1px solid rgba(255,255,255,0.08);
-
-  box-shadow:
-    0 10px 35px rgba(0,0,0,0.45),
-    inset 0 1px 1px rgba(255,255,255,0.12),
-    inset 0 -1px 1px rgba(0,0,0,0.2);
-
-  overflow:hidden;
+.couple-info p {
+  margin: 0 0 0.3rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
 }
 
-/* EFEK CAHAYA PUTIH */
-.time-box::before{
-  content:'';
-
-  position:absolute;
-
-  width:120px;
-  height:120px;
-
-  background:
-    rgba(255,255,255,0.12);
-
-  border-radius:50%;
-
-  filter:blur(35px);
-
-  top:-60px;
-  right:-40px;
+.couple-info span {
+  font-weight: 600;
+  color: #e2e8f0;
+  font-size: 1.1rem;
 }
 
-/* ANGKA */
-.time-box h2{
-  font-size:48px;
-  font-weight:700;
-
-  color:#ffd76a;
-
-  text-shadow:
-    0 0 15px rgba(255,215,106,0.35);
-
-  margin-bottom:10px;
-
-  position:relative;
-  z-index:2;
+/* --- COUNTDOWN & GLASSMORPHISM --- */
+.countdown-section {
+  margin-top: 2rem;
 }
 
-/* TEXT */
-.time-box span{
-  font-size:14px;
-  letter-spacing:1px;
-
-  color:#eef3ff;
-
-  position:relative;
-  z-index:2;
+.countdown-label {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
 
-  .countdown-wrapper{
-    grid-template-columns:repeat(2,1fr);
+/* Efek Blur Glass Cahaya Putih */
+.time-box {
+  background: rgba(255, 255, 255, 0.05); /* Latar transparan putih */
+  backdrop-filter: blur(12px); /* Efek blur/kaca */
+  -webkit-backdrop-filter: blur(12px); /* Untuk Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Border putih transparan */
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  /* Bayangan luar dan cahaya putih di dalam (inset) */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.15); 
+}
+
+/* Font Angka */
+.time-box h2 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: #ffd700; /* Warna Emas/Gold - Sangat cocok dengan Navy */
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4); /* Efek cahaya pada angka */
+}
+
+.time-box span {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+  .couple-wrapper {
+    gap: 3rem;
+  }
+  
+  .couple-image {
+    width: 160px;
+    height: 160px;
   }
 
-  .time-box h2{
-    font-size:36px;
+  .frame-decoration {
+    width: 180px;
+    height: 180px;
   }
-
+  
+  .time-box {
+    width: 75px;
+    height: 75px;
+    padding: 1rem;
+  }
+  
+  .time-box h2 {
+    font-size: 1.8rem;
+  }
+  
+  .time-box span {
+    font-size: 0.75rem;
+  }
 }
