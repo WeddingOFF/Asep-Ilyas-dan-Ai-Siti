@@ -35,7 +35,7 @@ body.buka-scroll {
   top: 0;
   width: 50%; /* Masing-masing panel mengambil setengah lebar layar */
   height: 100%;
-  background: linear-gradient(180deg, #071427, #0b1f3a, #071427); /* Menggunakan warna gradasi navy asli kamu */
+  background: linear-gradient(180deg, #071427, #0b1f3a, #071427); /* Warna gradasi navy asli kamu */
   z-index: 5; /* Di bawah konten */
   transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); /* Efek pergerakan gerbang yang elegan */
   box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.03); 
@@ -55,24 +55,30 @@ body.buka-scroll {
 
 /* --- KONTEN DI DALAM COVER (BUNGA, FOTO, TEKS, TOMBOL) --- */
 .cover-content {
-  position: relative;
-  z-index: 999; /* DINAIKKAN PALING ATAS AGAR BISA DIKLIK */
-  text-align: center;
+  position: absolute; /* DIUBAH KE ABSOLUTE agar bisa menjadi patokan bunga pojok */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999; /* Tetap di atas gerbang */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: white;
-  max-width: 400px;
-  padding: 20px;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  padding: 30px 20px;
 }
 
-/* /* GLOW */
-/* .glow {
+/* GLOW */
+.glow {
   position: absolute;
   border-radius: 50%;
   filter: blur(100px);
   z-index: 1;
-} */
+  pointer-events: none; /* Supaya tidak menghalangi klik */
+}
 
-/* .glow1 {
+.glow1 {
   width: 300px;
   height: 300px;
   background: #1f5eff;
@@ -91,12 +97,13 @@ body.buka-scroll {
 }
 
 /* BUNGA POJOK */
-/* .corner {
+.corner {
   position: absolute;
   width: 170px;
   z-index: 2;
   opacity: 0.95;
-}  */
+  pointer-events: none; /* Supaya tidak menghalangi klik */
+}
 
 .top-left { top: 0; left: 0; }
 .top-right { top: 0; right: 0; transform: scaleX(-1); }
@@ -121,9 +128,8 @@ body.buka-scroll {
 .photo-wrapper {
   width: 250px;
   height: 250px;
-  margin: auto;
+  margin: 0 auto 30px auto;
   position: relative;
-  margin-bottom: 30px;
 }
 
 .couple-photo {
@@ -141,6 +147,7 @@ body.buka-scroll {
   width: 130px;
   left: -20px;
   bottom: -20px;
+  z-index: 3;
 }
 
 /* NAMA */
@@ -172,9 +179,8 @@ body.buka-scroll {
   box-shadow: 0 0 20px rgba(74, 144, 255, 0.45);
   transition: 0.3s;
   display: inline-block;
-
-  postion: relative;
-  z-index:99999 !important;
+  position: relative; 
+  z-index: 99999 !important; 
 }
 
 /* Efek Hover Tombol */
