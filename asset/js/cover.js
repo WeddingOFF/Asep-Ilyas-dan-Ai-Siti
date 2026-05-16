@@ -22,6 +22,10 @@
 
   document.body.classList.add('buka-scroll');
 
+    }
+
+  }
+
   // MULAI PUTAR MUSIK
   if (musik) {
     musik.play();
