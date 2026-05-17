@@ -222,3 +222,70 @@ body.buka-scroll {
 
 
 
+
+/* COVER */
+
+#cover{
+  position: relative;
+  overflow: hidden;
+}
+
+/* SVG ORNAMEN */
+
+.ornamen{
+  position: absolute;
+
+  width: 140px;
+  height: 140px;
+
+  z-index: 1;
+
+  opacity: .8;
+}
+
+.ornamen path{
+  stroke: #d4af37;
+  stroke-width: 4;
+  fill: none;
+
+  filter:
+  drop-shadow(0 0 8px rgba(212,175,55,.5));
+}
+
+/* POJOK */
+
+.top-left{
+  top: 0;
+  left: 0;
+}
+
+.top-right{
+  top: 0;
+  right: 0;
+
+  transform: rotate(90deg);
+}
+
+.bottom-left{
+  bottom: 0;
+  left: 0;
+
+  transform: rotate(-90deg);
+}
+
+.bottom-right{
+  bottom: 0;
+  right: 0;
+
+  transform: rotate(180deg);
+}
+
+/* KONTEN DI ATAS SVG */
+
+.cover-content{
+  position: relative;
+  z-index: 2;
+}
+
+
+
