@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wedding Invitation</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Taruh baris link Google Fonts ini di dalam <head> HTML kamu -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Kita panggil font 'Great Vibes' untuk nama pengantin -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
 
   <link rel="stylesheet" href="asset/css/style.css">
    <link rel="stylesheet" href="asset/css/quran.css">
@@ -19,8 +25,9 @@
 </head>
 <body>
 
+<!-- ================================================================= -->
 
- <!-- COVER -->
+<!-- COVER SECTION -->
 <section id="cover" class="cover-section">
 
   <!-- 1. BACKGROUND PASANGAN & GRADASI -->
@@ -31,45 +38,50 @@
   <div class="gate-panel gate-left"></div>
   <div class="gate-panel gate-right"></div>
 
-<!-- KONTEN UTAMA -->
-<div class="cover-content">
+  <!-- 3. KONTEN UTAMA -->
+  <div class="cover-content">
 
-  <!-- Glow, Welcome To, The Wedding Of, dan Nama tetap sama seperti kode sebelumnya -->
-  <p class="welcome-text">Welcome To</p>
-  <h2 class="title-text">The Wedding Of</h2>
+    <!-- Glow -->
+    <div class="glow glow1"></div>
+    <div class="glow glow2"></div>
 
-  <div class="bottom-layout">
-    
-    <!-- Nama Zigzag -->
-    <div class="couple-name-container">
-      <h1 class="couple-name groom">Asep Ilyas</h1>
-      <span class="ampersand">&</span>
-      <h1 class="couple-name bride">Ai Siti</h1>
+    <!-- DIUBAH: Teks Welcome To (Nanti di-styling ala Algerian di CSS) -->
+    <p class="welcome-text">Welcome To The Wedding</p>
+
+    <!-- The Wedding Of (Tetap di tengah layar / tengah badan wanita) -->
+    <h2 class="title-text">The Wedding Of</h2>
+
+    <!-- Wrapper untuk Nama, Tanggal, dan Tombol -->
+    <div class="bottom-layout">
+      
+      <!-- DIUBAH: Nama Zigzag (Menggunakan font Great Vibes) -->
+      <div class="couple-name-container">
+        <h1 class="couple-name groom">Ai Siiti</h1>
+        <span class="ampersand">&</span>
+        <h1 class="couple-name bride">Asep Ilyas</h1>
+      </div>
+
+      <!-- Box Tamu Undangan -->
+      <div class="guest-box">
+        <p class="guest-title">Kepada Yth.</p>
+        <h3 id="guest-name" class="guest-name">Nama Tamu Undangan</h3>
+      </div>
+
+      <!-- Tanggal -->
+      <p class="save-date">
+        Save The Date<br>
+        Minggu, 07 Juni 2026
+      </p>
+
+      <!-- Tombol Buka Undangan -->
+      <button class="open-btn" onclick="bukaUndangan()">
+        Buka Undangan
+      </button>
     </div>
 
-    <!-- === NEW: BOX NAMA TAMU UNDANGAN === -->
-    <div class="guest-box">
-      <p class="guest-title">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-      <h3 id="guest-name" class="guest-name">Nama Tamu Undangan</h3>
-    </div>
-
-    <!-- Tanggal -->
-    <p class="save-date">
-      Save The Date<br>
-      Minggu, 07 Juni 2026
-    </p>
-
-    <!-- Tombol Buka Undangan -->
-    <button class="open-btn" onclick="bukaUndangan()">
-      Buka Undangan
-    </button>
   </div>
 
-
-</section> <!-- Penutup cover-section -->
-  </div> <!-- Penutup cover-content -->
-
-</section> <!-- Penutup cover-section -->
+</section>
 
 
 <nav class="navbar">
