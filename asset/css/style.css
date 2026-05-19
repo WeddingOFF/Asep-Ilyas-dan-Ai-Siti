@@ -296,7 +296,7 @@ body.buka-scroll {
 /* --- BOX TAMU UNDANGAN --- */
 .guest-box {
   text-align: center;
-  margin-bottom: 25px; /* Jarak ke teks tanggal */
+  margin-bottom: 30px; /* Jarak ke teks tanggal */
   background: rgba(255, 255, 255, 0.08); /* Kotak transparan tipis */
   padding: 12px 25px;
   border-radius: 15px;
@@ -340,7 +340,7 @@ body.buka-scroll {
 
   /* 3. Atur area layout bawah agar pas dengan tinggi layar HP */
   .bottom-layout {
-    bottom: 35px; /* Jarak aman dari navigasi bawah HP (seperti bar iPhone/Android) */
+    bottom: 100px; /* Jarak aman dari navigasi bawah HP (seperti bar iPhone/Android) */
     padding: 0 15px;
   }
 
@@ -367,7 +367,7 @@ body.buka-scroll {
   .guest-box {
     width: 95%; /* Lebih lebar di HP agar muat nama tamu yang panjang */
     padding: 10px 15px;
-    margin-bottom: 15px;
+    margin-bottom: px;
   }
 
   .guest-name {
