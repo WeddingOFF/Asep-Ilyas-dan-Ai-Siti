@@ -21,49 +21,48 @@
 
 
   <!-- COVER -->
- <section id="cover" class="cover-section"> <!-- Menggunakan class utama yang sinkron dengan CSS gerbang -->
+ <!-- COVER -->
+<section id="cover" class="cover-section">
 
-  <!-- 1. PANEL GERBANG (Harus di paling atas setelah section agar menjadi latar belakang) -->
+  <!-- 1. BACKGROUND PASANGAN & GRADASI BIRU -->
+  <!-- Gambar pasangan dijadikan background penuh -->
+  <div class="cover-background" style="background-image: url('assets/img/pasangan.jpeg');"></div>
+  
+  <!-- Overlay gradasi biru cerah di bagian bawah -->
+  <div class="cover-gradient-overlay"></div>
+
+  <!-- 2. PANEL GERBANG (Dipertahankan untuk efek animasi membelah) -->
   <div class="gate-panel gate-left"></div>
   <div class="gate-panel gate-right"></div>
 
-
-
-
-
-  <!-- 2. KONTEN UTAMA (Semua teks, foto, dan tombol dibungkus di sini agar tidak ikut terbelah) -->
+  <!-- 3. KONTEN UTAMA -->
   <div class="cover-content">
 
-    <!-- Glow -->
+    <!-- Glow (Opsional, tetap dipertahankan) -->
     <div class="glow glow1"></div>
     <div class="glow glow2"></div>
 
-    <!-- Text Atas -->
-    <p class="welcome-text">Welcome To</p>
-    <h2 class="title-text">The Wedding Of</h2>
+    <!-- Wrapper Teks di Bagian Bawah (Di atas gradasi biru) -->
+    <div class="text-layout">
+      <p class="welcome-text">Welcome To</p>
+      <h2 class="title-text">The Wedding Of</h2>
 
-    <!-- Foto Bulat -->
-    <div class="photo-wrapper">
-      <img src="assets/img/pasangan.jpeg" class="couple-photo" alt="">
-      <!-- Hiasan bunga -->
-      <img src="assets/img/flower-frame.png" class="photo-flower" alt="">
+      <!-- Nama -->
+      <h1 class="couple-name">
+        Asep Ilyas & Ai Siti
+      </h1>
+
+      <!-- Tanggal -->
+      <p class="save-date">
+        Save The Date<br>
+        Minggu, 07 Juni 2026
+      </p>
+
+      <!-- Tombol Buka Undangan -->
+      <button class="open-btn" onclick="bukaUndangan()">
+        Buka Undangan
+      </button>
     </div>
-
-    <!-- Nama -->
-    <h1 class="couple-name">
-      Asep Ilyas & Ai Siti
-    </h1>
-
-    <!-- Tanggal -->
-    <p class="save-date">
-      Save The Date<br>
-     Minggu, 07 Juni 2026
-    </p>
-
-    <!-- Tombol Buka Undangan (Sudah masuk ke dalam satu container konten) -->
-    <button class="open-btn" onclick="bukaUndangan()">
-      Buka Undangan
-    </button>
 
   </div> <!-- Penutup cover-content -->
 
