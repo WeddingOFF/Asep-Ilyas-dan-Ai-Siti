@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
     const observerLama = new IntersectionObserver(callbackLama, opsiSensorLama);
-    const targetsLama = ['couple', 'event']; // ID couple tetap di sini agar sistem lamamu tidak error
+    const targetsLama = ['couple', 'event', 'gift']; // ID couple tetap di sini agar sistem lamamu tidak error
     targetsLama.forEach(id => {
         const element = document.getElementById(id);
         if (element) {
@@ -105,3 +105,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+
+// Fungsi Salin Teks Rekening
+function copyText(teks) {
+  navigator.clipboard.writeText(teks).then(() => {
+    alert("Nomor rekening berhasil disalin: " + teks);
+  }).catch(err => {
+    console.error('Gagal menyalin: ', err);
+  });
+}
