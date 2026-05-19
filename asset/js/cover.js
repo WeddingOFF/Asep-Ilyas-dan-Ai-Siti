@@ -50,3 +50,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+
+  // Fungsi untuk mengambil nama tamu dari URL (Link)
+  function getGuestName() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let guest = urlParams.get('to'); // Mengambil teks setelah '?to='
+    
+    if (guest) {
+      // Mengganti tanda plus (+) atau %20 dengan spasi biasa
+      guest = decodeURIComponent(guest.replace(/\+/g, ' '));
+      // Memasukkan nama tamu ke dalam HTML
+      document.getElementById('guest-name').innerText = guest;
+    } else {
+      // Nama default jika link dibuka tanpa nama tamu khusus
+      document.getElementById('guest-name').innerText = "Nama Tamu";
+    }
+  }
+
+  // Jalankan fungsi saat halaman web selesai dimuat
+  window.addEventListener('DOMContentLoaded', getGuestName);
+
