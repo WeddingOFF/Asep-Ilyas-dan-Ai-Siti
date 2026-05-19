@@ -1,55 +1,55 @@
-// 1. FUNGSI UTAMA: Buka Undangan
+// 1. FUNGSI UTAMA: Buka Undangan & Auto Scroll ke Couple
 function bukaUndangan() {
     const cover = document.querySelector('.cover-section');
     const musik = document.getElementById('musikUndangan');
 
+    // Menjalankan animasi gerbang membelah
     if (cover) {
         cover.classList.add('hidden');
     }
 
+    // Membuka kuncian scroll pada body halaman
     document.body.classList.add('buka-scroll');
 
+    // Memutar musik latar belakang
     if (musik) {
-        musik.play().catch(err => console.log("Musik jalan setelah klik"));
+        musik.play().catch(err => console.log("Musik aktif setelah interaksi user"));
     }
 
+    // Mengarahkan layar secara smooth tepat ke Section Couple setelah gerbang terbuka
     setTimeout(() => {
-        const target = document.getElementById('ayat');
+        const target = document.getElementById('couple');
         if (target) {
             target.scrollIntoView({ behavior: 'smooth' });
         }
-    }, 600);
+    }, 600); // Delay 0.6 detik disesuaikan dengan transisi gerbang
 }
 
-// 2. SENSOR ANIMASI: Mengawasi Section Couple & Event
+// 2. SENSOR ANIMASI BARU: Timbul Per Elemen (Fade In Up) saat Di-scroll
 document.addEventListener("DOMContentLoaded", function () {
+    
     const opsiSensor = {
-        threshold: 0.15 // Animasi jalan saat 15% bagian muncul di layar
+        threshold: 0.1 // Animasi mulai jalan saat 10% bagian elemen masuk layar HP
     };
 
-    const callback = (entries, observer) => {
+    const callbackAnimasi = (entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Menambahkan class 'muncul' agar CSS bekerja
-                entry.target.classList.add('muncul');
-                // Berhenti mengawasi setelah muncul sekali
-                observer.unobserve(entry.target);
+                // Mengubah elemen .fade-up menjadi .visible agar memicu CSS baru
+                entry.target.classList.add('visible');
             }
         });
     };
 
-    const observer = new IntersectionObserver(callback, opsiSensor);
+    const observer = new IntersectionObserver(callbackAnimasi, opsiSensor);
 
-    // Daftar ID yang mau dipasang sensor animasi
-    const targets = ['couple', 'event'];
-    
-    targets.forEach(id => {
-        const element = document.getElementById(id);
-        if (element) {
-            observer.observe(element);
-        }
+    // Otomatis mengawasi semua elemen teks/gambar yang memiliki class 'fade-up'
+    const elemenAnimasi = document.querySelectorAll('.fade-up');
+    elemenAnimasi.forEach(el => {
+        observer.observe(el);
     });
 });
+
 
 
 
@@ -92,4 +92,26 @@ document.addEventListener("DOMContentLoaded", function () {
       this.classList.add('active');
     });
   });
+
+
+
+
+<script>
+  // Membuat pengamat (Observer) untuk melihat kapan elemen muncul di layar
+  const observerFadeUp = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // Jika elemen masuk ke dalam layar HP/Laptop
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible'); // Tambahkan kelas untuk memicu animasi
+      }
+    });
+  }, {
+    threshold: 0.1 // Animasi dimulai saat 10% bagian elemen sudah terlihat di layar
+  });
+
+  // Terapkan observer ini ke semua elemen yang memiliki kelas 'fade-up'
+  document.querySelectorAll('.fade-up').forEach((el) => {
+    observerFadeUp.observe(el);
+  });
+</script>
 
