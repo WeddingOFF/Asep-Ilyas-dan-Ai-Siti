@@ -1,55 +1,75 @@
-// 1. FUNGSI UTAMA: Buka Undangan & Auto Scroll ke Couple
+// 1. FUNGSI UTAMA: Buka Undangan (Sesuai aslimu, dipertahankan 100%)
 function bukaUndangan() {
     const cover = document.querySelector('.cover-section');
     const musik = document.getElementById('musikUndangan');
 
-    // Menjalankan animasi gerbang membelah
     if (cover) {
         cover.classList.add('hidden');
     }
 
-    // Membuka kuncian scroll pada body halaman
     document.body.classList.add('buka-scroll');
 
-    // Memutar musik latar belakang
     if (musik) {
-        musik.play().catch(err => console.log("Musik aktif setelah interaksi user"));
+        musik.play().catch(err => console.log("Musik jalan setelah klik"));
     }
 
-    // Mengarahkan layar secara smooth tepat ke Section Couple setelah gerbang terbuka
     setTimeout(() => {
-        const target = document.getElementById('couple');
+        // Hanya ini yang diganti ke 'couple' agar pas di-klik langsung mengarah ke pengantin
+        const target = document.getElementById('couple'); 
         if (target) {
             target.scrollIntoView({ behavior: 'smooth' });
         }
-    }, 600); // Delay 0.6 detik disesuaikan dengan transisi gerbang
+    }, 600);
 }
 
-// 2. SENSOR ANIMASI BARU: Timbul Per Elemen (Fade In Up) saat Di-scroll
+// 2. SENSOR ANIMASI: Mengawasi elemen lama & elemen baru
 document.addEventListener("DOMContentLoaded", function () {
     
+    // ==========================================
+    // SENSOR LAMA (DIPERTAHANKAN 100% AGAR WEB LAMA TIDAK ERROR)
+    // ==========================================
     const opsiSensor = {
-        threshold: 0.1 // Animasi mulai jalan saat 10% bagian elemen masuk layar HP
+        threshold: 0.15 
     };
 
-    const callbackAnimasi = (entries) => {
+    const callback = (entries, observer) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Mengubah elemen .fade-up menjadi .visible agar memicu CSS baru
-                entry.target.classList.add('visible');
+                entry.target.classList.add('muncul');
+                observer.unobserve(entry.target);
             }
         });
     };
 
-    const observer = new IntersectionObserver(callbackAnimasi, opsiSensor);
+    const observer = new IntersectionObserver(callback, opsiSensor);
 
-    // Otomatis mengawasi semua elemen teks/gambar yang memiliki class 'fade-up'
-    const elemenAnimasi = document.querySelectorAll('.fade-up');
-    elemenAnimasi.forEach(el => {
-        observer.observe(el);
+    const targets = ['couple', 'event'];
+    
+    targets.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+            observer.observe(element);
+        }
     });
-});
 
+    // ==========================================
+    // SENSOR BARU (KHUSUS UNTUK ANIMASI TIMBUL DARI BAWAH .fade-up)
+    // ==========================================
+    const observerBaru = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible'); // Memicu CSS fade-up kita
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.fade-up').forEach((el) => {
+        observerBaru.observe(el);
+    });
+
+});
 
 
 
@@ -96,22 +116,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-<script>
-  // Membuat pengamat (Observer) untuk melihat kapan elemen muncul di layar
-  const observerFadeUp = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      // Jika elemen masuk ke dalam layar HP/Laptop
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible'); // Tambahkan kelas untuk memicu animasi
-      }
-    });
-  }, {
-    threshold: 0.1 // Animasi dimulai saat 10% bagian elemen sudah terlihat di layar
-  });
-
-  // Terapkan observer ini ke semua elemen yang memiliki kelas 'fade-up'
-  document.querySelectorAll('.fade-up').forEach((el) => {
-    observerFadeUp.observe(el);
-  });
-</script>
 
