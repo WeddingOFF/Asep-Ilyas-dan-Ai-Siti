@@ -1,5 +1,5 @@
 // ==========================================
-// 1. FUNGSI UTAMA: BUKA UNDANGAN
+// 1. FUNGSI UTAMA: BUKA UNDANGAN & PEMICU ANIMASI COUPLE
 // ==========================================
 function bukaUndangan() {
     const cover = document.querySelector('.cover-section');
@@ -19,7 +19,13 @@ function bukaUndangan() {
         musik.play().catch(err => console.log("Musik jalan setelah klik"));
     }
 
-    // Gulir ke bagian Pengantin (Couple)
+    // --- BARU: Jalankan animasi fade-up khusus di section Couple saat buka undangan ---
+    const elemenCouple = document.querySelectorAll('#couple .fade-up');
+    elemenCouple.forEach((el) => {
+        el.classList.add('visible');
+    });
+
+    // Gulir otomatis ke bagian Pengantin (Couple)
     setTimeout(() => {
         const target = document.getElementById('couple'); 
         if (target) {
@@ -39,25 +45,23 @@ function getGuestName() {
     
     if (guestNameElement) {
         if (guest) {
-            // Mengganti tanda + / %20 dengan spasi
             guest = decodeURIComponent(guest.replace(/\+/g, ' '));
             guestNameElement.innerText = guest;
         } else {
-            // Default jika link tidak ada '?to='
             guestNameElement.innerText = "Tamu Undangan"; 
         }
     }
 }
 
 // ==========================================
-// 3. SEMUA SENSOR ANIMASI, NAVIGASI, & INISIALISASI AWAL
+// 3. SENSOR ANIMASI UNTUK SECTION LAIN & NAVIGASI
 // ==========================================
 document.addEventListener("DOMContentLoaded", function () {
     
-    // --- Panggil Fungsi Nama Tamu saat web dimuat ---
+    // Panggil Fungsi Nama Tamu saat web dimuat
     getGuestName();
 
-    // --- A. SENSOR LAMA (Untuk '#couple' & '#event') ---
+    // --- A. SENSOR LAMA (Tetap dipertahankan untuk '#event' dll) ---
     const opsiSensorLama = { threshold: 0.15 };
     const callbackLama = (entries, observer) => {
         entries.forEach((entry) => {
@@ -68,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
     const observerLama = new IntersectionObserver(callbackLama, opsiSensorLama);
-    const targetsLama = ['couple', 'event'];
+    const targetsLama = ['couple', 'event']; // ID couple tetap di sini agar sistem lamamu tidak error
     targetsLama.forEach(id => {
         const element = document.getElementById(id);
         if (element) {
@@ -76,7 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // --- B. SENSOR BARU (Untuk elemen teks/gambar '.fade-up') ---
+    // --- B. SENSOR SCROLL BARU (Hanya untuk elemen .fade-up yang BUKAN di dalam #couple) ---
+    // Contoh: jika nanti kamu pakai kelas .fade-up di section acara, rsvp, atau gift.
     const observerBaru = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -85,11 +90,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.fade-up').forEach((el) => {
+    // Hanya mengawasi elemen .fade-up yang berada di luar #couple
+    document.querySelectorAll('section:not(#couple) .fade-up, div:not(#couple) .fade-up').forEach((el) => {
         observerBaru.observe(el);
     });
 
-    // --- C. NAVIGASI BAWAH (Berubah warna saat diklik) ---
+    // --- C. NAVIGASI BAWAH (Efek klik) ---
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(item => {
         item.addEventListener('click', function() {
