@@ -20,37 +20,39 @@
 <body>
 
 
-  <!-- COVER -->
  <!-- COVER -->
 <section id="cover" class="cover-section">
 
-  <!-- 1. BACKGROUND PASANGAN & GRADASI BIRU -->
-  <!-- Gambar pasangan dijadikan background penuh -->
+  <!-- 1. BACKGROUND PASANGAN & GRADASI -->
   <div class="cover-background" style="background-image: url('assets/img/pasangan.jpeg');"></div>
-  
-  <!-- Overlay gradasi biru cerah di bagian bawah -->
   <div class="cover-gradient-overlay"></div>
 
-  <!-- 2. PANEL GERBANG (Dipertahankan untuk efek animasi membelah) -->
+  <!-- 2. PANEL GERBANG -->
   <div class="gate-panel gate-left"></div>
   <div class="gate-panel gate-right"></div>
 
   <!-- 3. KONTEN UTAMA -->
   <div class="cover-content">
 
-    <!-- Glow (Opsional, tetap dipertahankan) -->
+    <!-- Glow -->
     <div class="glow glow1"></div>
     <div class="glow glow2"></div>
 
-    <!-- Wrapper Teks di Bagian Bawah (Di atas gradasi biru) -->
-    <div class="text-layout">
-      <p class="welcome-text">Welcome To</p>
-      <h2 class="title-text">The Wedding Of</h2>
+    <!-- Welcome To (Dipisahkan ke kiri atas) -->
+    <p class="welcome-text">Welcome To</p>
 
-      <!-- Nama -->
-      <h1 class="couple-name">
-        Asep Ilyas & Ai Siti
-      </h1>
+    <!-- The Wedding Of (Diposisikan di tengah layar / tengah badan wanita) -->
+    <h2 class="title-text">The Wedding Of</h2>
+
+    <!-- Wrapper untuk Nama, Tanggal, dan Tombol di bagian bawah -->
+    <div class="bottom-layout">
+      
+      <!-- Nama dibuat zigzag (Pria kiri, Wanita kanan) -->
+      <div class="couple-name-container">
+        <h1 class="couple-name groom">Asep Ilyas</h1>
+        <span class="ampersand">&</span>
+        <h1 class="couple-name bride">Ai Siti</h1>
+      </div>
 
       <!-- Tanggal -->
       <p class="save-date">
@@ -64,6 +66,9 @@
       </button>
     </div>
 
+  </div> <!-- Penutup cover-content -->
+
+</section> <!-- Penutup cover-section -->
   </div> <!-- Penutup cover-content -->
 
 </section> <!-- Penutup cover-section -->
