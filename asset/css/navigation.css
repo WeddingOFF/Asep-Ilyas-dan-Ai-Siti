@@ -1,58 +1,55 @@
-/* NAVBAR CONTAINER */
-.navbar {
+/* ==========================================
+   BOTTOM NAVIGATION BAR
+========================================== */
+.bottom-navbar {
   position: fixed;
-  bottom: 20px;
+  bottom: 20px; /* Jarak melayang dari bawah layar */
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
-  max-width: 400px;
-  background: rgba(7, 20, 39, 0.8); /* Warna navy khas kamu dengan transparansi */
-  backdrop-filter: blur(10px); /* Efek kaca kekinian */
+  max-width: 400px; /* Agar tidak terlalu lebar di layar laptop/PC */
+  background: rgba(7, 20, 39, 0.75); /* Warna Navy transparan */
+  backdrop-filter: blur(12px); /* Efek Kaca */
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px; /* Ujung sangat membulat (Pill shape) */
   display: flex;
   justify-content: space-around;
-  padding: 10px;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 999; /* Pastikan di atas section, tapi di bawah cover */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  
-  /* Sembunyikan navbar saat cover masih tertutup */
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.5s;
+  align-items: center;
+  padding: 10px 15px;
+  z-index: 9998; /* Di bawah cover-section (9999) agar saat cover aktif, menu ini tertutup */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* Munculkan navbar saat gerbang sudah dibuka */
-body.buka-scroll .navbar {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* NAV ITEM */
+/* Item Menu */
 .nav-item {
-  text-decoration: none;
-  color: #d9e6ff;
-  font-size: 11px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: 0.3s;
-}
-
-.nav-item:hover {
-  color: #63c7ff;
-}
-
-/* Atur ukuran ikon */
-.nav-item i {
-  font-size: 18px; /* Ukuran ikon */
-  margin-bottom: 4px; /* Jarak antara ikon dan tulisan di bawahnya */
-}
-
-/* Biar teks di bawah ikon lebih rapi */
-.nav-item span {
-  font-size: 10px;
+  text-decoration: none;
+  color: #9baecf; /* Warna biru pudar untuk yang tidak aktif */
+  font-size: 11px;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  gap: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Efek Hover (Saat disentuh/kursor di atas) */
+.nav-item:hover {
+  color: #ffffff;
+}
+
+/* Saat Menu Sedang Aktif / Di-klik */
+.nav-item.active {
+  color: #63c7ff; /* Berubah menjadi biru terang cerah */
+  transform: translateY(-4px); /* Mengambang sedikit ke atas */
+}
+
+/* Supaya garis SVG ikut berubah warna */
+.nav-item svg {
+  transition: all 0.3s ease;
+}
+.nav-item.active svg {
+  stroke: #63c7ff;
+  fill: rgba(99, 199, 255, 0.2); /* Memberi sedikit isi warna saat aktif */
 }
