@@ -29,6 +29,32 @@ body.buka-scroll {
   overflow: hidden;
 }
 
+/* --- NEW: BACKGROUND FOTO UTAMA (FULL SCREEN) --- */
+.cover-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 6; /* Di atas gerbang asli agar langsung terlihat */
+  transition: opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* --- NEW: GRADASI BIRU CERAH DI BAWAH --- */
+.cover-gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65%; /* Menutupi 65% area bawah untuk tempat tulisan */
+  /* Gradasi dari biru cerah pekat di bawah ke transparan di tengah */
+  background: linear-gradient(to top, rgba(0, 114, 255, 1) 0%, rgba(0, 114, 255, 0.8) 45%, rgba(0, 114, 255, 0) 100%);
+  z-index: 7;
+  transition: opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
 /* --- STRUKTUR GERBANG TERBELAH (LEFT & RIGHT PANEL) --- */
 .gate-panel {
   position: absolute;
@@ -36,7 +62,7 @@ body.buka-scroll {
   width: 50%; /* Masing-masing panel mengambil setengah lebar layar */
   height: 100%;
   background: linear-gradient(180deg, #071427, #0b1f3a, #071427); /* Warna gradasi navy asli kamu */
-  z-index: 5; /* Di bawah konten */
+  z-index: 5; /* Di bawah background utama & konten */
   transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); /* Efek pergerakan gerbang yang elegan */
   box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.03); 
 }
@@ -53,20 +79,30 @@ body.buka-scroll {
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* --- KONTEN DI DALAM COVER (BUNGA, FOTO, TEKS, TOMBOL) --- */
+/* --- KONTEN DI DALAM COVER --- */
 .cover-content {
-  position: absolute; /* DIUBAH KE ABSOLUTE agar bisa menjadi patokan bunga pojok */
+  position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 999; /* Tetap di atas gerbang */
+  z-index: 999; /* Tetap di lapisan paling atas */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end; /* DIUBAH: Mendorong konten teks ke bawah agar pas di area gradasi */
   align-items: center;
   color: white;
-  padding: 30px 20px;
+  padding: 30px 20px 60px 20px; /* Ditambah padding bawah agar posisi tombol ideal */
+  transition: opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1), transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* NEW: LAYOUT PEMBUNGKUS TEKS DI ATAS GRADASI */
+.text-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
 /* GLOW */
@@ -75,7 +111,7 @@ body.buka-scroll {
   border-radius: 50%;
   filter: blur(100px);
   z-index: 1;
-  pointer-events: none; /* Supaya tidak menghalangi klik */
+  pointer-events: none; 
 }
 
 .glow1 {
@@ -96,58 +132,18 @@ body.buka-scroll {
   opacity: 0.25;
 }
 
-/* BUNGA POJOK */
-.corner {
-  position: absolute;
-  width: 170px;
-  z-index: 2;
-  opacity: 0.95;
-  pointer-events: none; /* Supaya tidak menghalangi klik */
-}
-
-.top-left { top: 0; left: 0; }
-.top-right { top: 0; right: 0; transform: scaleX(-1); }
-.bottom-left { bottom: 0; left: 0; transform: scaleY(-1); }
-.bottom-right { bottom: 0; right: 0; transform: scale(-1); }
-
 /* TEXT */
 .welcome-text {
   font-size: 15px;
   letter-spacing: 3px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: #d9e6ff;
 }
 
 .title-text {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 500;
-  margin-bottom: 35px;
-}
-
-/* FOTO */
-.photo-wrapper {
-  width: 250px;
-  height: 250px;
-  margin: 0 auto 30px auto;
-  position: relative;
-}
-
-.couple-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid rgba(255,255,255,0.15);
-  box-shadow: 0 0 30px rgba(74, 144, 255, 0.4);
-}
-
-/* BUNGA FOTO */
-.photo-flower {
-  position: absolute;
-  width: 130px;
-  left: -20px;
-  bottom: -20px;
-  z-index: 3;
+  margin-bottom: 25px;
 }
 
 /* NAMA */
@@ -155,7 +151,8 @@ body.buka-scroll {
   font-size: 32px;
   font-weight: 600;
   line-height: 1.4;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sedikit shadow agar nama lebih terbaca jelas */
 }
 
 /* TANGGAL */
@@ -198,6 +195,12 @@ body.buka-scroll {
   pointer-events: none;
 }
 
+/* NEW: Background utama & gradasi ikut memudar secara sinkron saat dibuka */
+.cover-section.hidden .cover-background,
+.cover-section.hidden .cover-gradient-overlay {
+  opacity: 0;
+}
+
 /* 2. Gerbang Kiri Meluncur Keluar ke Arah Kiri */
 .cover-section.hidden .gate-left {
   transform: translateX(-100%);
@@ -214,6 +217,3 @@ body.buka-scroll {
   visibility: hidden;
   transition: visibility 0s linear 1.2s; 
 }
-
-
-
