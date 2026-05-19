@@ -1,305 +1,257 @@
-/* =========================================
-   SECTION COUPLE (BACKGROUND & GLOW PUTIH)
-========================================= */
+/* --- SECTION PENGANTIN --- */
 .couple-section {
-  background-color: #0b132b; /* Biru Navy Asli */
-  color: #ffffff;
   position: relative;
-  padding: 5rem 2rem;
+  width: 100%;
+  min-height: 100vh;
+  /* Gradasi dasar Navy - Agak Terang di Tengah - Navy */
+  background: linear-gradient(180deg, #071427 0%, #0d2a54 50%, #071427 100%);
+  color: white;
+  padding: 60px 20px;
   overflow: hidden;
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
-  /* Persiapan untuk memastikan konten muat di 1 layar */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-height: 100vh; 
+  align-items: center;
 }
 
-/* Efek Cahaya Putih di Tengah */
-.couple-glow {
+/* Efek Cahaya Putih/Biru Cerah di Tengah Background */
+.center-light {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 65%);
-  z-index: 0;
+  width: 80%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(99, 199, 255, 0.05) 40%, transparent 70%);
   pointer-events: none;
+  z-index: 1;
 }
 
 .couple-content {
   position: relative;
-  z-index: 1;
-  max-width: 900px;
-  margin: 0 auto;
+  z-index: 5;
   width: 100%;
+  max-width: 800px;
 }
 
-/* =========================================
-   TYPOGRAPHY (BISMILLAH & SALAM EMAS)
-========================================= */
+/* --- PEMBUKAAN --- */
+.opening-text {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
 .bismillah {
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem; /* Jarak diperlebar */
-  font-weight: 500;
-  color: #ffd700; /* Warna Emas */
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Glow Emas */
-  display: inline-block;
-  
-  /* Persiapan Animasi Typing */
-  clip-path: inset(0 100% 0 0); /* Menyembunyikan teks ke kiri */
+  font-family: 'Amiri', serif; /* Rekomendasi font Arab, pastikan di-import jika mau */
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  color: #63c7ff;
 }
 
 .salam {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem; /* Jarak diperlebar */
-  font-weight: normal;
-  color: #ffd700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
-  opacity: 0; /* Disembunyikan dulu */
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  line-height: 1.5;
 }
 
 .intro-text {
-  font-size: 1rem;
-  line-height: 1.6;
-  max-width: 750px;
-  margin: 0 auto 3rem;
-  color: #cbd5e1;
-  opacity: 0; /* Disembunyikan dulu */
+  font-size: 14px;
+  line-height: 1.8;
+  color: #dce7ff;
 }
 
-/* =========================================
-   LAYOUT PENGANTIN (ZIG-ZAG DIPAKSA)
-========================================= */
+/* --- KARTU PENGANTIN (KIRI & KANAN) --- */
 .couple-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  margin-bottom: 3rem;
-  width: 100%;
+  gap: 30px;
+  margin-bottom: 60px;
 }
 
 .couple-card {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
+  gap: 15px;
   width: 100%;
-  opacity: 0; /* Disembunyikan dulu */
 }
 
-/* Pria (Kiri) */
+/* Pengantin Pria didorong ke pinggir kiri */
 .couple-card.groom {
-  flex-direction: row;
-  text-align: left;
+  justify-content: flex-start;
 }
 
-/* Wanita (Kanan) */
+/* Pengantin Wanita didorong ke pinggir kanan */
 .couple-card.bride {
-  flex-direction: row-reverse;
-  text-align: right;
+  justify-content: flex-end;
 }
 
-/* =========================================
-   FOTO & FIGURA EMAS BERCAHAYA (TANPA BUNGA)
-========================================= */
-.couple-image {
-  width: 180px;
-  height: 180px;
+/* Pengaturan Teks Info */
+.couple-info {
+  flex: 1;
+}
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.couple-name-section {
+  font-family: 'Algerian', 'Georgia', serif;
+  font-size: 22px;
+  color: #ffffff;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.couple-status {
+  font-size: 13px;
+  color: #63c7ff;
+  font-style: italic;
+  margin-bottom: 3px;
+}
+
+.parents-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #dce7ff;
+}
+
+/* Divider '&' di tengah */
+.couple-divider {
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
+  color: #63c7ff;
+  margin: -10px 0;
+}
+
+/* --- FIGURA FOTO CANTIK --- */
+.couple-image-wrapper {
   position: relative;
-  z-index: 2;
-  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0; /* Agar foto tidak mengecil tertekan teks */
 }
 
-.couple-image img {
+.couple-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
   border-radius: 50%;
-  border: 4px solid #ffd700; /* Figura Emas */
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6), inset 0 0 10px rgba(255, 215, 0, 0.3); /* Glow Luar Dalam */
+  position: relative;
+  z-index: 2;
+  border: 3px solid transparent;
 }
 
-.couple-info {
-  flex: 1;
-  max-width: 250px; /* Batasi lebar teks agar tidak menekan foto */
+.circle-frame {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 2px dashed #63c7ff;
+  animation: spin 15s linear infinite; /* Animasi putar pada figura */
+  z-index: 1;
 }
 
-.couple-info h2 {
-  font-size: 2.2rem;
-  margin: 0 0 0.2rem;
-  color: #ffffff;
-  font-family: Georgia, serif;
+/* Animasi bingkai putar */
+@keyframes spin {
+  100% { transform: rotate(360deg); }
 }
 
-.couple-info p, .couple-info span {
-  margin: 0 0 0.5rem;
-  color: #e2e8f0;
-  font-size: 1rem;
-}
-
-/* =========================================
-   KOTAK WAKTU (DIPAKSA 1 BARIS)
-========================================= */
+/* --- COUNTDOWN (GLASSMORPHISM) --- */
 .countdown-section {
-  margin-top: 1rem;
-  opacity: 0; /* Disembunyikan dulu */
+  text-align: center;
+  margin-top: 20px;
 }
 
+.countdown-label {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: #63c7ff;
+  margin-bottom: 20px;
+}
+
+/* Grid 4 Kolom Paksa di Semua Device */
 .countdown-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap; /* PAKSA KESAMPING, JANGAN TURUN */
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
 }
 
 .time-box {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-top: 2px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05); /* Latar transparan */
+  backdrop-filter: blur(10px); /* Efek Kaca / Glassmorphism */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
-  padding: 1rem;
-  width: 90px;
-  height: 90px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); 
+  padding: 15px 5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .time-box h2 {
-  margin: 0;
-  font-size: 2rem;
-  color: #ffd700; 
-  font-family: Georgia, serif;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-}
-
-.time-box span {
-  font-size: 0.8rem;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 5px;
   color: #ffffff;
 }
 
-/* =========================================
-   ANIMASI URUTAN TAMPIL (DIPICU CLASS .muncul)
-========================================= */
-
-/* 1. Bismillah: Animasi Mengetik */
-#couple.muncul .bismillah {
-  animation: typeReveal 1.5s steps(30, end) forwards;
+.time-box span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #dce7ff;
 }
 
-/* 2. Salam & Intro: Muncul Perlahan dari bawah */
-#couple.muncul .salam {
-  animation: fadeUp 1s ease forwards 1s; /* Jeda 1 detik setelah Bismillah */
-}
-#couple.muncul .intro-text {
-  animation: fadeUp 1s ease forwards 1.5s;
-}
-
-/* 3. Pria: Smooth Fade In */
-#couple.muncul .couple-card.groom {
-  animation: smoothFade 1.5s ease forwards 2s;
+/* --- ANIMASI TERBIT BAWAH KE ATAS --- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-/* 4. Wanita: Smooth Fade In */
-#couple.muncul .couple-card.bride {
-  animation: smoothFade 1.5s ease forwards 2.8s;
-}
+/* Memberikan delay berurutan agar munculnya estetik */
+.opening-text.fade-up { animation-delay: 0.2s; }
+.couple-card.groom.fade-up { animation-delay: 0.4s; }
+.couple-divider.fade-up { animation-delay: 0.6s; }
+.couple-card.bride.fade-up { animation-delay: 0.8s; }
+.countdown-section.fade-up { animation-delay: 1s; }
 
-/* 5. Kotak Waktu: Muncul Terakhir */
-#couple.muncul .countdown-section {
-  animation: fadeUp 1.5s ease forwards 3.6s;
-}
-
-/* Keyframes Animasi */
-@keyframes typeReveal {
-  to { clip-path: inset(0 0 0 0); }
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes smoothFade {
-  from { opacity: 0; transform: scale(0.9); filter: blur(3px); }
-  to { opacity: 1; transform: scale(1); filter: blur(0); }
-}
-
-
-/* =========================================
-   PAKSA SUPPORT HP (TETAP MENYAMPING & PAS LAYAR)
-========================================= */
-
-
-  .bismillah { font-size: 1.6rem; margin-bottom: 0.8rem; }
-  .salam { font-size: 1.2rem; margin-bottom: 0.8rem; }
-  .intro-text { font-size: 0.85rem; margin-bottom: 1.5rem; }
-
-  .couple-wrapper { gap: 1.2rem; margin-bottom: 1.5rem; }
-
-  /* TETAP MENYAMPING! Teks di samping foto */
- @media (max-width: 768px) {
-  /* Wrapper tetap kolom (atas-bawah) */
-  .couple-wrapper {
-    display: flex;
-    flex-direction: column; 
-    gap: 2.5rem; /* Jarak antara Pria dan Wanita */
-  }
-
-  /* Card Pria & Wanita dipaksa beda arah */
-  .couple-card.groom {
-    flex-direction: row !important; /* Foto Kiri, Nama Kanan */
-    align-self: flex-start; /* Nempel Kiri */
-    text-align: left;
-    width: 90%;
-  }
-
-  .couple-card.bride {
-    flex-direction: row-reverse !important; /* Foto Kanan, Nama Kiri */
-    align-self: flex-end; /* Nempel Kanan */
-    text-align: right;
-    width: 90%;
-  }
-
-  /* Ukuran Foto di HP agar proporsional */
-  .couple-image {
-    width: 120px;
-    height: 120px;
-    flex-shrink: 0;
-  }
-
-  /* Info Nama agar tidak terlalu lebar */
-  .couple-info {
-    max-width: 180px;
-  }
-
-  .couple-info h2 {
-    font-size: 1.5rem;
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-  .couple-info {
-    max-width: 60%; /* Beri ruang agar teks tidak tumpah */
-  }
 
-  .couple-info h2 { font-size: 1.4rem; }
-  .couple-info p, .couple-info span { font-size: 0.8rem; }
-
-  /* KOTAK WAKTU: Tetap 3/4 kolom ke samping, perkecil ukuran box */
-  .countdown-wrapper { gap: 8px; }
-  .time-box {
-    width: 65px;
-    height: 70px;
-    padding: 0.5rem;
+/* =================================================================
+   MEDIA QUERY UNTUK HP (Merapikan ukuran font)
+   ================================================================= */
+@media screen and (max-width: 768px) {
+  .couple-image-wrapper {
+    width: 90px;
+    height: 90px;
   }
-  .time-box h2 { font-size: 1.3rem; }
-  .time-box span { font-size: 0.65rem; }
+  
+  .couple-name-section {
+    font-size: 18px;
+  }
+  
+  .intro-text {
+    font-size: 13px;
+  }
+  
+  .time-box h2 {
+    font-size: 18px;
+  }
+  
+  .time-box span {
+    font-size: 9px;
+  }
+  
+  .countdown-wrapper {
+    gap: 8px;
+  }
 }
