@@ -148,16 +148,21 @@ body.buka-scroll {
   box-sizing: border-box;
 }
 
-/* 1. Welcome To: Dikunci di Kiri Atas */
+/* 1. Welcome To The Wedding: Diubah ke gaya ALGERIAN */
 .welcome-text {
   position: absolute;
-  top: 80px;
+  top: 40px;
   left: 25px;
-  font-size: 14px;
-  letter-spacing: 3px;
+  
+  /* Efek font Algerian (Kapital, tegas, berserif tebal) */
+  font-family: 'Algerian', 'Georgia', serif; 
+  font-size: 16px;
   text-transform: uppercase;
+  letter-spacing: 2px;
   color: #d9e6ff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
+
 
 /* 2. The Wedding Of: Tepat di Tengah Layar (Tengah Badan) */
 .title-text {
@@ -193,34 +198,36 @@ body.buka-scroll {
   margin-bottom: 25px;
 }
 
+/* 2. Nama Pengantin: Diubah ke gaya GREAT VIBES (Tulisan Tegak Bersambung Estetik) */
 .couple-name {
-  font-size: 36px;
-  font-weight: 600;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  font-family: 'Great Vibes', cursive; /* Menggunakan font dari Google Fonts */
+  font-size: 52px; /* Font tegak bersambung biasanya butuh ukuran lebih besar agar terbaca */
+  font-weight: 400; /* Font estetik script umumnya bagus di ketebalan normal */
+  line-height: 1.2;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
-/* Nama Pria merapat ke kiri */
+/* Sisa CSS zigzag nama lainnya tetap sama */
 .couple-name.groom {
   text-align: left;
   align-self: flex-start;
-  padding-left: 10px;
+  padding-left: 15px;
 }
 
-/* Simbol & di tengah agak samar/estetik */
 .ampersand {
-  font-size: 24px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 38px;
   text-align: center;
-  margin: -5px 0;
+  margin: -10px 0;
   color: #63c7ff;
 }
 
-/* Nama Wanita merapat ke kanan (Efek Zigzag) */
 .couple-name.bride {
   text-align: right;
   align-self: flex-end;
-  padding-right: 10px;
+  padding-right: 15px;
 }
-
 /* 4. Tanggal & Tombol */
 .save-date {
   font-size: 14px;
