@@ -1,5 +1,5 @@
 // ==========================================
-// 1. FUNGSI UTAMA: BUKA UNDANGAN (Asli milikmu)
+// 1. FUNGSI UTAMA: BUKA UNDANGAN
 // ==========================================
 function bukaUndangan() {
     const cover = document.querySelector('.cover-section');
@@ -8,7 +8,6 @@ function bukaUndangan() {
     // Sembunyikan cover
     if (cover) {
         cover.classList.add('hidden');
-        // Fitur darurat: memaksa cover hilang jika class .hidden tidak mempan
         setTimeout(() => { cover.style.display = 'none'; }, 800);
     }
 
@@ -30,11 +29,35 @@ function bukaUndangan() {
 }
 
 // ==========================================
-// 2. SEMUA SENSOR ANIMASI & NAVIGASI
+// 2. FUNGSI NAMA TAMU (Dari URL Link)
+// ==========================================
+function getGuestName() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let guest = urlParams.get('to'); 
+    
+    const guestNameElement = document.getElementById('guest-name');
+    
+    if (guestNameElement) {
+        if (guest) {
+            // Mengganti tanda + / %20 dengan spasi
+            guest = decodeURIComponent(guest.replace(/\+/g, ' '));
+            guestNameElement.innerText = guest;
+        } else {
+            // Default jika link tidak ada '?to='
+            guestNameElement.innerText = "Tamu Undangan"; 
+        }
+    }
+}
+
+// ==========================================
+// 3. SEMUA SENSOR ANIMASI, NAVIGASI, & INISIALISASI AWAL
 // ==========================================
 document.addEventListener("DOMContentLoaded", function () {
     
-    // --- A. SENSOR LAMA (Dipertahankan 100% agar web tidak error) ---
+    // --- Panggil Fungsi Nama Tamu saat web dimuat ---
+    getGuestName();
+
+    // --- A. SENSOR LAMA (Untuk '#couple' & '#event') ---
     const opsiSensorLama = { threshold: 0.15 };
     const callbackLama = (entries, observer) => {
         entries.forEach((entry) => {
@@ -53,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // --- B. SENSOR BARU (Khusus efek fade-up dari bawah ke atas) ---
+    // --- B. SENSOR BARU (Untuk elemen teks/gambar '.fade-up') ---
     const observerBaru = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -66,46 +89,13 @@ document.addEventListener("DOMContentLoaded", function () {
         observerBaru.observe(el);
     });
 
-    // --- C. NAVIGASI BAWAH (Efek menyala saat menu diklik) ---
+    // --- C. NAVIGASI BAWAH (Berubah warna saat diklik) ---
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(item => {
         item.addEventListener('click', function() {
-            // Hapus status aktif dari semua menu
             navItems.forEach(nav => nav.classList.remove('active'));
-            // Tambahkan status aktif ke menu yang barusan diklik
             this.classList.add('active');
         });
     });
 
 });
-
-
-  // Fungsi untuk mengambil nama tamu dari URL (Link)
-  function getGuestName() {
-    const urlParams = new URLSearchParams(window.location.search);
-    let guest = urlParams.get('to'); // Mengambil teks setelah '?to='
-    
-    if (guest) {
-      // Mengganti tanda plus (+) atau %20 dengan spasi biasa
-      guest = decodeURIComponent(guest.replace(/\+/g, ' '));
-      // Memasukkan nama tamu ke dalam HTML
-      document.getElementById('guest-name').innerText = guest;
-    } else {
-      // Nama default jika link dibuka tanpa nama tamu khusus
-      document.getElementById('guest-name').innerText = "Nama Tamu";
-    }
-  }
-
-  // Jalankan fungsi saat halaman web selesai dimuat
-  window.addEventListener('DOMContentLoaded', getGuestName);
-}
-}
-
-
-
-
-
-
-
-
- 
