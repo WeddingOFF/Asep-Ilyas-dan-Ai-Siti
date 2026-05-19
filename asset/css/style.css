@@ -135,35 +135,98 @@ body.buka-scroll {
   opacity: 0.25;
 }
 
-/* TEXT */
+/* --- KONTEN DI DALAM COVER --- */
+.cover-content {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  color: white;
+  padding: 30px 25px;
+  box-sizing: border-box;
+}
+
+/* 1. Welcome To: Dikunci di Kiri Atas */
 .welcome-text {
-  font-size: 15px;
+  position: absolute;
+  top: 40px;
+  left: 25px;
+  font-size: 14px;
   letter-spacing: 3px;
-  margin-bottom: 8px;
+  text-transform: uppercase;
   color: #d9e6ff;
 }
 
+/* 2. The Wedding Of: Tepat di Tengah Layar (Tengah Badan) */
 .title-text {
-  font-size: 26px;
+  position: absolute;
+  top: 45%; /* Menaruhnya di sekitar area tengah/badan */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
   font-weight: 500;
+  text-align: center;
+  width: 100%;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Supaya kontras di baju wanita */
+}
+
+/* 3. Layout Bawah (Nama, Tanggal, Tombol) */
+.bottom-layout {
+  position: absolute;
+  bottom: 50px; /* Jarak dari bawah layar */
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 25px;
+}
+
+/* --- EFEK ZIGZAG NAMA --- */
+.couple-name-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 25px;
 }
 
-/* NAMA */
 .couple-name {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sedikit shadow agar nama lebih terbaca jelas */
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* TANGGAL */
+/* Nama Pria merapat ke kiri */
+.couple-name.groom {
+  text-align: left;
+  align-self: flex-start;
+  padding-left: 10px;
+}
+
+/* Simbol & di tengah agak samar/estetik */
+.ampersand {
+  font-size: 24px;
+  text-align: center;
+  margin: -5px 0;
+  color: #63c7ff;
+}
+
+/* Nama Wanita merapat ke kanan (Efek Zigzag) */
+.couple-name.bride {
+  text-align: right;
+  align-self: flex-end;
+  padding-right: 10px;
+}
+
+/* 4. Tanggal & Tombol */
 .save-date {
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: 14px;
+  line-height: 1.6;
   color: #dce7ff;
-  margin-bottom: 35px;
+  text-align: center;
+  margin-bottom: 25px;
 }
 
 /* TOMBOL BUKA UNDANGAN (Desain Gradasi Biru Asli Kamu) */
