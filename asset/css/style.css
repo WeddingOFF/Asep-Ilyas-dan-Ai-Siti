@@ -148,33 +148,30 @@ body.buka-scroll {
   box-sizing: border-box;
 }
 
-/* 1. Welcome To The Wedding: Diubah ke gaya ALGERIAN */
+/* 1. Welcome To: Menggunakan GREAT VIBES (Tulisan Sambung) */
 .welcome-text {
   position: absolute;
   top: 40px;
   left: 25px;
-  
-  /* Efek font Algerian (Kapital, tegas, berserif tebal) */
-  font-family: 'Algerian', 'Georgia', serif; 
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px; /* Ukuran disesuaikan karena font script cenderung tipis */
   color: #d9e6ff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-
-/* 2. The Wedding Of: Tepat di Tengah Layar (Tengah Badan) */
+/* 2. The Wedding Of: Menggunakan GREAT VIBES (Tengah Layar / Badan) */
 .title-text {
   position: absolute;
-  top: 20%; /* Menaruhnya di sekitar area tengah/badan */
-  left: 130px;
+  top: 20%; 
+  left: 130%;
   transform: translate(-50%, -50%);
-  font-size: 24px;
-  font-weight: 500;
+  font-family: 'Great Vibes', cursive;
+  font-size: 38px; /* Dibuat agak besar agar terlihat anggun di tengah */
+  font-weight: 400;
   text-align: center;
   width: 100%;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Supaya kontras di baju wanita */
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 
@@ -198,31 +195,34 @@ body.buka-scroll {
   margin-bottom: 25px;
 }
 
-/* 2. Nama Pengantin: Diubah ke gaya GREAT VIBES (Tulisan Tegak Bersambung Estetik) */
+/* 3. Nama Pengantin: Menggunakan ALGERIAN (Tegak & Tegas) */
 .couple-name {
-  font-family: 'Great Vibes', cursive; /* Menggunakan font dari Google Fonts */
-  font-size: 52px; /* Font tegak bersambung biasanya butuh ukuran lebih besar agar terbaca */
-  font-weight: 400; /* Font estetik script umumnya bagus di ketebalan normal */
-  line-height: 1.2;
+  font-family: 'Algerian', 'Georgia', serif;
+  font-size: 34px; /* Font Algerian sudah cukup tebal dan besar */
+  font-weight: bold;
+  text-transform: uppercase; /* Memastikan otomatis kapital semua khas Algerian */
+  line-height: 1.3;
   color: #ffffff;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
-/* Sisa CSS zigzag nama lainnya tetap sama */
+/* Pengaturan Zigzag Nama Pria */
 .couple-name.groom {
   text-align: left;
   align-self: flex-start;
   padding-left: 15px;
 }
 
+/* Simbol Dan (&) di Tengah Nama */
 .ampersand {
-  font-family: 'Great Vibes', cursive;
-  font-size: 38px;
+  font-family: 'Algerian', 'Georgia', serif;
+  font-size: 26px;
   text-align: center;
-  margin: -10px 0;
+  margin: -5px 0;
   color: #63c7ff;
 }
 
+/* Pengaturan Zigzag Nama Wanita */
 .couple-name.bride {
   text-align: right;
   align-self: flex-end;
