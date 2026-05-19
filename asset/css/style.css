@@ -284,3 +284,31 @@ body.buka-scroll {
   visibility: hidden;
   transition: visibility 0s linear 1.2s; 
 }
+
+
+
+/* --- BOX TAMU UNDANGAN --- */
+.guest-box {
+  text-align: center;
+  margin-bottom: 25px; /* Jarak ke teks tanggal */
+  background: rgba(255, 255, 255, 0.08); /* Kotak transparan tipis */
+  padding: 12px 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px); /* Efek kaca blur halus */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  max-width: 90%;
+}
+
+.guest-title {
+  font-size: 12px;
+  color: #dce7ff;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.guest-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #63c7ff; /* Warna biru cerah agar nama tamu stand out */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
