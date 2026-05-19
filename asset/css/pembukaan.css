@@ -258,3 +258,74 @@
     gap: 8px;
   }
 }
+
+
+/* ==========================================
+   KOTAK AYAT EMAS MINIMALIS + EFFECT GLOW
+========================================== */
+.verse-container {
+  margin-top: 50px; 
+  margin-bottom: 40px; 
+  padding: 30px 20px;
+  background: rgba(7, 20, 39, 0.4); /* Background navy super transparan agar teks glow kontras */
+  border: 1px solid rgba(255, 215, 0, 0.4); /* Border emas cerah tipis */
+  border-radius: 15px; 
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.1), inset 0 0 15px rgba(255, 215, 0, 0.05); /* Kilau kotak luar dalam */
+  text-align: center;
+  max-width: 450px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Garis pembatas emas mini */
+.verse-line {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  margin: 0 auto;
+}
+
+/* Tulisan Bismillah (Emas Cerah + Glow) */
+.verse-bismillah {
+  font-size: 22px;
+  font-family: 'Times New Roman', serif;
+  color: #ffd700; /* Warna Gold Cerah */
+  text-shadow: 0 0 4px rgba(255, 215, 0, 0.6), 0 0 10px rgba(255, 215, 0, 0.3); /* Efek Pendar Glow */
+  margin: 15px 0 5px 0;
+}
+
+/* Tulisan Ayat Arab (Emas Cerah + Glow) */
+.verse-arabic {
+  font-size: 20px;
+  line-height: 2.2;
+  font-family: 'Times New Roman', serif;
+  color: #ffd700; /* Warna Gold Cerah */
+  text-shadow: 0 0 4px rgba(255, 215, 0, 0.6), 0 0 10px rgba(255, 215, 0, 0.3); /* Efek Pendar Glow */
+  margin-bottom: 20px;
+  direction: rtl;
+}
+
+/* Teks Terjemahan */
+.verse-translation {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #e0e0e0;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+/* Sumber Surat / Ayat */
+.verse-reference {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffd700;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  text-shadow: 0 0 3px rgba(255, 215, 0, 0.4);
+}
+
+/* Jeda animasi setelah countdown selesai muncul */
+.verse-container.fade-up {
+  transition-delay: 1.1s;
+}
