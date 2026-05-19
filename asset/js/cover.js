@@ -1,20 +1,27 @@
-// 1. FUNGSI UTAMA: Buka Undangan (Sesuai aslimu, dipertahankan 100%)
+// ==========================================
+// 1. FUNGSI UTAMA: BUKA UNDANGAN (Asli milikmu)
+// ==========================================
 function bukaUndangan() {
     const cover = document.querySelector('.cover-section');
     const musik = document.getElementById('musikUndangan');
 
+    // Sembunyikan cover
     if (cover) {
         cover.classList.add('hidden');
+        // Fitur darurat: memaksa cover hilang jika class .hidden tidak mempan
+        setTimeout(() => { cover.style.display = 'none'; }, 800);
     }
 
+    // Buka kunci scroll
     document.body.classList.add('buka-scroll');
 
+    // Putar lagu
     if (musik) {
         musik.play().catch(err => console.log("Musik jalan setelah klik"));
     }
 
+    // Gulir ke bagian Pengantin (Couple)
     setTimeout(() => {
-        // Hanya ini yang diganti ke 'couple' agar pas di-klik langsung mengarah ke pengantin
         const target = document.getElementById('couple'); 
         if (target) {
             target.scrollIntoView({ behavior: 'smooth' });
@@ -22,17 +29,14 @@ function bukaUndangan() {
     }, 600);
 }
 
-// 2. SENSOR ANIMASI: Mengawasi elemen lama & elemen baru
+// ==========================================
+// 2. SEMUA SENSOR ANIMASI & NAVIGASI
+// ==========================================
 document.addEventListener("DOMContentLoaded", function () {
     
-    // ==========================================
-    // SENSOR LAMA (DIPERTAHANKAN 100% AGAR WEB LAMA TIDAK ERROR)
-    // ==========================================
-    const opsiSensor = {
-        threshold: 0.15 
-    };
-
-    const callback = (entries, observer) => {
+    // --- A. SENSOR LAMA (Dipertahankan 100% agar web tidak error) ---
+    const opsiSensorLama = { threshold: 0.15 };
+    const callbackLama = (entries, observer) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('muncul');
@@ -40,37 +44,40 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     };
-
-    const observer = new IntersectionObserver(callback, opsiSensor);
-
-    const targets = ['couple', 'event'];
-    
-    targets.forEach(id => {
+    const observerLama = new IntersectionObserver(callbackLama, opsiSensorLama);
+    const targetsLama = ['couple', 'event'];
+    targetsLama.forEach(id => {
         const element = document.getElementById(id);
         if (element) {
-            observer.observe(element);
+            observerLama.observe(element);
         }
     });
 
-    // ==========================================
-    // SENSOR BARU (KHUSUS UNTUK ANIMASI TIMBUL DARI BAWAH .fade-up)
-    // ==========================================
+    // --- B. SENSOR BARU (Khusus efek fade-up dari bawah ke atas) ---
     const observerBaru = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible'); // Memicu CSS fade-up kita
+                entry.target.classList.add('visible');
             }
         });
-    }, {
-        threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-up').forEach((el) => {
         observerBaru.observe(el);
     });
 
-});
+    // --- C. NAVIGASI BAWAH (Efek menyala saat menu diklik) ---
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Hapus status aktif dari semua menu
+            navItems.forEach(nav => nav.classList.remove('active'));
+            // Tambahkan status aktif ke menu yang barusan diklik
+            this.classList.add('active');
+        });
+    });
 
+});
 
 
   // Fungsi untuk mengambil nama tamu dari URL (Link)
@@ -101,19 +108,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  // Fungsi untuk mengganti status 'active' pada navigasi bawah
-  const navItems = document.querySelectorAll('.nav-item');
-
-  navItems.forEach(item => {
-    item.addEventListener('click', function() {
-      // Menghapus kelas 'active' dari semua menu
-      navItems.forEach(nav => nav.classList.remove('active'));
-      // Menambahkan kelas 'active' pada menu yang sedang diklik
-      this.classList.add('active');
-    });
-  });
-
-
-
-
-
+ 
