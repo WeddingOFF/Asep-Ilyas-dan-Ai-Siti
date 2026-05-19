@@ -327,15 +327,15 @@ body.buka-scroll {
   
   /* 1. Atur posisi Welcome To agar tidak terlalu mentok ke atas */
   .welcome-text {
-    top: 30px;
-    left: 20px;
+    top: px;
+    left: px;
     font-size: 22px; /* Disesuaikan ukurannya untuk layar HP */
   }
 
   /* 2. Atur posisi The Wedding Of di tengah layar HP */
   .title-text {
-    top: 42%; /* Sedikit dinaikkan agar pas di area dada/badan pada foto potret HP */
-    font-size: 32px; /* Ukuran font tulisan sambung di HP */
+    top: %; /* Sedikit dinaikkan agar pas di area dada/badan pada foto potret HP */
+    font-size: px; /* Ukuran font tulisan sambung di HP */
   }
 
   /* 3. Atur area layout bawah agar pas dengan tinggi layar HP */
@@ -351,11 +351,11 @@ body.buka-scroll {
 
   /* Geser posisi nama khusus di layar mobile */
   .couple-name.groom {
-    padding-right: 20px; /* Jarak nama pria dari tepi kanan HP */
+    padding-right: px; /* Jarak nama pria dari tepi kanan HP */
   }
 
   .couple-name.bride {
-    padding-left: 20px; /* Jarak nama wanita dari tepi kiri HP */
+    padding-left: px; /* Jarak nama wanita dari tepi kiri HP */
   }
 
   .ampersand {
