@@ -143,6 +143,7 @@
   border: 3px solid transparent;
 }
 
+/* --- FIGURA FOTO CANTIK (REVISI: TANPA ANIMASI PUTAR) --- */
 .circle-frame {
   position: absolute;
   top: -5px;
@@ -151,14 +152,10 @@
   bottom: -5px;
   border-radius: 50%;
   border: 2px dashed #63c7ff;
-  animation: spin 15s linear infinite; /* Animasi putar pada figura */
   z-index: 1;
+  /* Baris animation: spin... sudah dihapus dari sini */
 }
 
-/* Animasi bingkai putar */
-@keyframes spin {
-  100% { transform: rotate(360deg); }
-}
 
 /* --- COUNTDOWN (GLASSMORPHISM) --- */
 .countdown-section {
@@ -205,19 +202,25 @@
   color: #dce7ff;
 }
 
-/* --- ANIMASI TERBIT BAWAH KE ATAS --- */
+/* --- ANIMASI TERBIT BAWAH KE ATAS (FADE-UP) --- */
 .fade-up {
   opacity: 0;
-  transform: translateY(40px);
-  animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transform: translateY(50px); /* Posisi awal di bawah */
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Memberikan delay berurutan agar munculnya estetik */
-.opening-text.fade-up { animation-delay: 0.2s; }
-.couple-card.groom.fade-up { animation-delay: 0.4s; }
-.couple-divider.fade-up { animation-delay: 0.6s; }
-.couple-card.bride.fade-up { animation-delay: 0.8s; }
-.countdown-section.fade-up { animation-delay: 1s; }
+/* Kelas tambahan yang akan memicu animasi saat elemen masuk ke layar */
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0); /* Kembali ke posisi semula */
+}
+
+/* Memberikan jeda (delay) agar munculnya berurutan dan estetik */
+.opening-text.fade-up { transition-delay: 0.1s; }
+.couple-card.groom.fade-up { transition-delay: 0.3s; }
+.couple-divider.fade-up { transition-delay: 0.5s; }
+.couple-card.bride.fade-up { transition-delay: 0.7s; }
+.countdown-section.fade-up { transition-delay: 0.9s; }
 
 @keyframes fadeInUp {
   to {
