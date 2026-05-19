@@ -151,7 +151,7 @@ body.buka-scroll {
 /* 1. Welcome To: Dikunci di Kiri Atas */
 .welcome-text {
   position: absolute;
-  top: 40px;
+  top: 80px;
   left: 25px;
   font-size: 14px;
   letter-spacing: 3px;
@@ -162,8 +162,8 @@ body.buka-scroll {
 /* 2. The Wedding Of: Tepat di Tengah Layar (Tengah Badan) */
 .title-text {
   position: absolute;
-  top: 45%; /* Menaruhnya di sekitar area tengah/badan */
-  left: 50%;
+  top: 20%; /* Menaruhnya di sekitar area tengah/badan */
+  left: 130px;
   transform: translate(-50%, -50%);
   font-size: 24px;
   font-weight: 500;
@@ -171,6 +171,7 @@ body.buka-scroll {
   width: 100%;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Supaya kontras di baju wanita */
 }
+
 
 /* 3. Layout Bawah (Nama, Tanggal, Tombol) */
 .bottom-layout {
