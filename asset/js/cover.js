@@ -71,4 +71,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Jalankan fungsi saat halaman web selesai dimuat
   window.addEventListener('DOMContentLoaded', getGuestName);
+}
+}
+
+
+
+
+
+
+
+
+  // Fungsi untuk mengganti status 'active' pada navigasi bawah
+  const navItems = document.querySelectorAll('.nav-item');
+
+  navItems.forEach(item => {
+    item.addEventListener('click', function() {
+      // Menghapus kelas 'active' dari semua menu
+      navItems.forEach(nav => nav.classList.remove('active'));
+      // Menambahkan kelas 'active' pada menu yang sedang diklik
+      this.classList.add('active');
+    });
+  });
 
