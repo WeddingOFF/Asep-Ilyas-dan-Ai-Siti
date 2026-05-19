@@ -191,7 +191,7 @@ body.buka-scroll {
 .couple-name-container {
   width: 100%;
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: -25px;
   display: block; /* Mengubah dari flex ke block agar tidak saling dorong */
 }
 
