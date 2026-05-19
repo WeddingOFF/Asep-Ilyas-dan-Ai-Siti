@@ -1,193 +1,155 @@
-/* --- BASE & BACKGROUND --- */
+/* ==========================================
+   SECTION WEDDING GIFT
+========================================== */
 .gift-section {
-  background-color: #0b132b; /* Warna Biru Navy serasi */
-  color: #ffffff;
   position: relative;
-  padding: 5rem 2rem;
-  overflow: hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 80px 20px 60px 20px;
+  background-color: #071427; /* Navy senada */
+  overflow: hidden; 
 }
 
-/* --- GLOW EFFECT --- */
+/* --- EFEK GLOW DI BELAKANG --- */
 .gift-glow {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 75%;
-  height: 75%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(99, 199, 255, 0.15) 0%, transparent 60%);
   z-index: 0;
-  pointer-events: none;
 }
 
 .gift-container {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  max-width: 450px; 
   margin: 0 auto;
-}
-
-/* --- HEADER (JUDUL & KATA BIJAK) --- */
-.gift-header {
   text-align: center;
-  margin-bottom: 4rem;
 }
 
+/* --- JUDUL & KUTIPAN --- */
+.gift-header {
+  margin-bottom: 30px;
+}
 .gift-header h2 {
-  font-size: 2.5rem;
-  font-family: Georgia, serif;
-  color: #ffffff;
-  margin: 0 0 1.5rem;
-  letter-spacing: 1px;
+  font-family: 'Times New Roman', serif;
+  color: #ffd700; /* Emas */
+  font-size: 26px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
-
 .gift-quote {
-  font-size: 1rem;
+  color: #cfd8dc;
+  font-size: 13px;
+  line-height: 1.5;
   font-style: italic;
-  line-height: 1.8;
-  color: #cbd5e1;
-  max-width: 650px;
-  margin: 0 auto;
+  padding: 0 10px;
 }
 
-/* --- BARIS REKENING (2 KOLOM KESAMPING) --- */
+/* --- LAYOUT 2 KOLOM KIRI KANAN --- */
 .gift-row {
   display: flex;
-  justify-content: center;
-  gap: 2.5rem;
+  justify-content: space-between;
+  gap: 15px; /* Jarak antar kotak */
 }
 
-/* KOTAK GLASSMORPHISM DENGAN CAHAYA PUTIH */
-.gift-card.glass-card {
-  flex: 1;
-  max-width: 420px;
-  background: rgba(255, 255, 255, 0.04); /* Transparan putih tipis */
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Garis batas putih */
-  border-top: 2px solid rgba(255, 255, 255, 0.55); /* Pantulan cahaya putih atas */
-  border-radius: 16px;
-  padding: 3rem 2rem;
-  text-align: center;
-  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gift-card.glass-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 45px 0 rgba(0, 0, 0, 0.5), inset 0 0 25px rgba(255, 255, 255, 0.2);
-}
-
-/* --- INFORMASI BANK --- */
-/* --- CSS UNTUK LOGO BANK --- */
-.bank-logo {
-  height: 50px; /* Menentukan tinggi area logo agar seragam */
+/* Kotak Rekening (Meminjam gaya glass-card) */
+.gift-card {
+  flex: 1; /* Membagi dua rata */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  /* Properti Glassmorphism bawaan */
+  background: rgba(255, 255, 255, 0.03); 
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 215, 0, 0.3); 
+  border-radius: 15px;
+  padding: 20px 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* --- ISI KOTAK REKENING --- */
 .bank-logo img {
-  max-width: 140px; /* Membatasi lebar maksimal logo */
-  max-height: 100%; /* Membatasi tinggi maksimal sesuai container */
-  object-fit: contain; /* Memastikan gambar proporsional dan tidak gepeng */
-  
-  /* 
-    TIPS OPSIONAL: 
-    Jika logo aslimu berwarna hitam/gelap dan tenggelam di background navy, 
-    aktifkan perintah di bawah ini untuk mengubah logo menjadi putih/silver estetik.
-  */
-  /* filter: brightness(0) invert(1); */
+  width: 70px;
+  height: auto;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 2px 4px rgba(255,255,255,0.2));
+}
+
+.bank-info {
+  margin-bottom: 15px;
 }
 .account-number {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ffd700; /* Warna Emas agar serasi dengan elemen emas sebelumnya */
-  margin: 0 0 0.5rem 0;
-  letter-spacing: 1px;
-}
-
-.account-name {
-  font-size: 1.1rem;
-  color: #e2e8f0;
-  margin: 0;
-}
-
-/* --- TOMBOL SALIN NOMOR --- */
-.btn-copy {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  padding: 0.7rem 1.5rem;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+.account-name {
+  color: #aebfd6;
+  font-size: 11px;
+}
+
+/* Tombol Salin Rekening */
+.btn-copy {
+  background: rgba(255, 215, 0, 0.15);
+  border: 1px solid #ffd700;
+  color: #ffd700;
+  padding: 8px 12px;
   border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+  width: 90%;
 }
-
 .btn-copy:hover {
-  background: #ffffff; /* Efek menyala putih terang saat di-hover */
-  color: #0b132b;
-  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+  background: #ffd700;
+  color: #071427;
 }
 
-/* --- RESPONSIVE MOBILE --- */
-/* --- RESPONSIVE MOBILE (PAKSA 2 KOLOM SEJAJAR) --- */
-@media (max-width: 768px) {
-  .gift-section {
-    padding: 3rem 1rem; /* Kurangi padding section agar ruang lebih luas */
-  }
+/* ==========================================
+   ANIMASI MUNCUL SAAT DI-SCROLL
+========================================== */
+/* 1. Posisi Awal (Disembunyikan) */
+.gift-header {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.gift-card:nth-child(1) { /* Kiri */
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.gift-card:nth-child(2) { /* Kanan */
+  opacity: 0;
+  transform: translateX(60px);
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
 
-  .gift-header h2 {
-    font-size: 1.8rem;
-  }
-
-  .gift-row {
-    flex-direction: row !important; /* Paksa tetap ke samping */
-    justify-content: center;
-    gap: 0.75rem; /* Perkecil jarak antar kotak */
-  }
-
-  .gift-card.glass-card {
-    flex: 1; /* Bagi dua layar sama rata */
-    min-width: 0; /* WAJIB! Agar kotak mau mengecil mengikuti layar HP */
-    padding: 1.5rem 0.8rem; /* Sunat padding dalam agar ringkas */
-    border-radius: 12px;
-  }
-
-  /* Kecilkan Logo Bank */
-  .bank-logo {
-    height: 30px;
-    margin-bottom: 1rem;
-  }
-
-  .bank-logo img {
-    max-width: 80px;
-  }
-
-  /* Kecilkan Angka Rekening agar tidak pecah baris */
-  .account-number {
-    font-size: 1.1rem; /* Ukuran pas untuk HP di mode 2 kolom */
-    letter-spacing: 0;
-  }
-
-  .account-name {
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
-  }
-
-  /* Kecilkan Tombol Salin */
-  .btn-copy {
-    padding: 0.5rem;
-    font-size: 0.75rem;
-    border-radius: 6px;
-  }
+/* 2. Posisi Muncul (Dijalankan JS) */
+#gift.muncul .gift-header {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+#gift.muncul .gift-card:nth-child(1) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+#gift.muncul .gift-card:nth-child(2) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.5s;
 }
