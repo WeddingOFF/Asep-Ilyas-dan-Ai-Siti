@@ -197,10 +197,10 @@ body.buka-scroll {
 
 .couple-name {
   font-family: 'Algerian', 'Georgia', serif;
-  font-size: 34px; 
+  font-size: 25px; 
   font-weight: bold;
   text-transform: uppercase; 
-  line-height: 1.3;
+  line-height: ;
   color: #ffffff;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
   width: 100%; /* Memenuhi layar agar text-align berfungsi sempurna */
@@ -209,7 +209,7 @@ body.buka-scroll {
 /* 1. Nama Pria (Di Kanan) */
 .couple-name.groom {
   text-align: right; 
-  padding-right: 25px; /* <--- ATUR ANGKA INI untuk menggeser nama PRIA ke kiri/kanan */
+  padding-left: 158px; /* <--- ATUR ANGKA INI untuk menggeser nama PRIA ke kiri/kanan */
 }
 
 /* 2. Simbol Dan (&) Tetap Aman di Tengah Layar */
@@ -225,7 +225,7 @@ body.buka-scroll {
 /* 3. Nama Wanita (Di Kiri) */
 .couple-name.bride {
   text-align: left; 
-  padding-left: 25px; /* <--- ATUR ANGKA INI untuk menggeser nama WANITA ke kanan/kiri */
+  padding-left: 44px; /* <--- ATUR ANGKA INI untuk menggeser nama WANITA ke kanan/kiri */
 }
 /* 4. Tanggal & Tombol */
 .save-date {
