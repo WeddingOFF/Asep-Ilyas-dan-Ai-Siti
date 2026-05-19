@@ -397,3 +397,15 @@ body.buka-scroll {
   .couple-name { font-size: 22px; }
   .guest-name { font-size: 16px; }
 }
+
+
+/* Memastikan Cover dan Tombol Buka Undangan ada di lapisan paling depan */
+.cover-section {
+  z-index: 99999 !important;
+  position: relative; /* Pastikan posisinya relatif atau absolute agar z-index bekerja */
+}
+
+/* Memastikan Menu Navigasi berada di bawah Cover */
+.bottom-navbar {
+  z-index: 9998;
+}
