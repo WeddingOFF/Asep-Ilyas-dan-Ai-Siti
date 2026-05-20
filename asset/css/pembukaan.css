@@ -215,13 +215,14 @@
   transform: translateY(0); /* Kembali ke posisi semula */
 }
 
-/* Memberikan jeda (delay) agar munculnya berurutan dan estetik */
-.opening-text.fade-up { transition-delay: 0.1s; }
-.couple-card.groom.fade-up { transition-delay: 0.3s; }
-.couple-divider.fade-up { transition-delay: 0.5s; }
-.couple-card.bride.fade-up { transition-delay: 0.7s; }
-.countdown-section.fade-up { transition-delay: 0.9s; }
+/* 1. Ayat muncul pertama (0.2s) */
+#couple .verse-container.fade-up { transition-delay: 0.2s; }
 
+/* 2. Foto/Nama Pengantin muncul setelahnya (0.5s) */
+#couple .couple-card.fade-up { transition-delay: 0.5s; }
+
+/* 3. Countdown muncul terakhir (0.8s) */
+#couple .countdown-section.fade-up { transition-delay: 0.8s; }
 @keyframes fadeInUp {
   to {
     opacity: 1;
