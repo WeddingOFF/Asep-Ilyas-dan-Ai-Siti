@@ -1,38 +1,33 @@
-// ==========================================
-// 1. FUNGSI UTAMA: BUKA UNDANGAN & PEMICU ANIMASI COUPLE
-// ==========================================
 function bukaUndangan() {
     const cover = document.querySelector('.cover-section');
     const musik = document.getElementById('musikUndangan');
 
-    // Sembunyikan cover
     if (cover) {
         cover.classList.add('hidden');
         setTimeout(() => { cover.style.display = 'none'; }, 800);
     }
 
-    // Buka kunci scroll
     document.body.classList.add('buka-scroll');
 
-    // Putar lagu
     if (musik) {
         musik.play().catch(err => console.log("Musik jalan setelah klik"));
     }
 
-    // Jalankan animasi fade-up khusus di section Couple saat buka undangan
+    // --- PAKSA SEMUA ELEMEN DI COUPLE MUNCUL ---
+    // Kita cari semua elemen dengan class 'fade-up' yang ada di dalam #couple
     const elemenCouple = document.querySelectorAll('#couple .fade-up');
     elemenCouple.forEach((el) => {
-        el.classList.add('visible');
+        el.classList.add('visible'); // Ini perintah untuk memunculkan animasi
     });
 
-    // Gulir otomatis ke bagian Pengantin (Couple)
+    // Gulir ke atas
     setTimeout(() => {
-        const target = document.getElementById('couple'); 
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, 600);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 500);
 }
+
+
+
 
 // ==========================================
 // 2. FUNGSI NAMA TAMU (Dari URL Link)
