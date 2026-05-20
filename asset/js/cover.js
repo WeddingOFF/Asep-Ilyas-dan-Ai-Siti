@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const observerLama = new IntersectionObserver(callbackLama, opsiSensorLama);
     
     // PENTING: ID 'gift' sudah dimasukkan ke sini juga agar section gift otomatis bisa bergerak
-    const targetsLama = ['couple', 'event', 'gift']; 
+    const targetsLama = ['event', 'gift']; 
     targetsLama.forEach(id => {
         const element = document.getElementById(id);
         if (element) {
