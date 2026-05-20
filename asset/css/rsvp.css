@@ -287,3 +287,30 @@
     padding:35px 20px;
   }
 }
+
+
+
+.wish-list-container {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.wish-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.wish-card strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.status-label {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
