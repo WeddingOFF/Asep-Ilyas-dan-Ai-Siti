@@ -19,7 +19,7 @@ function bukaUndangan() {
         musik.play().catch(err => console.log("Musik jalan setelah klik"));
     }
 
-    // --- BARU: Jalankan animasi fade-up khusus di section Couple saat buka undangan ---
+    // Jalankan animasi fade-up khusus di section Couple saat buka undangan
     const elemenCouple = document.querySelectorAll('#couple .fade-up');
     elemenCouple.forEach((el) => {
         el.classList.add('visible');
@@ -54,14 +54,54 @@ function getGuestName() {
 }
 
 // ==========================================
-// 3. SENSOR ANIMASI UNTUK SECTION LAIN & NAVIGASI
+// 3. FUNGSI COUNTDOWN (HITUNG MUNDUR)
+// ==========================================
+function mulaiCountdown() {
+    // Set target tanggal: 7 Juni 2026 Pukul 08:00:00 WIB
+    const targetTanggal = new Date("Jun 7, 2026 08:00:00").getTime();
+
+    const hitungMundur = setInterval(function() {
+        const sekarang = new Date().getTime();
+        const selisih = targetTanggal - sekarang;
+
+        // Rumus matematika konversi milidetik ke waktu
+        const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+        const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+        const detik = Math.floor((selisih % (1000 * 60)) / 1000);
+
+        // Menghubungkan ke ID di HTML kamu
+        const elHari = document.getElementById("hari");
+        const elJam = document.getElementById("jam");
+        const elMenit = document.getElementById("menit");
+        const elDetik = document.getElementById("detik");
+
+        if(elHari) elHari.innerText = hari;
+        if(elJam) elJam.innerText = jam;
+        if(elMenit) elMenit.innerText = menit;
+        if(elDetik) elDetik.innerText = detik;
+
+        // Jika tanggal pernikahan sudah lewat/tercapai
+        if (selisih < 0) {
+            clearInterval(hitungMundur);
+            if(elHari) elHari.innerText = "00";
+            if(elJam) elJam.innerText = "00";
+            if(elMenit) elMenit.innerText = "00";
+            if(elDetik) elDetik.innerText = "00";
+        }
+    }, 1000);
+}
+
+// ==========================================
+// 4. SATU WADAH UTAMA SAAT HALAMAN SELESAI DIMUAT
 // ==========================================
 document.addEventListener("DOMContentLoaded", function () {
     
-    // Panggil Fungsi Nama Tamu saat web dimuat
-    getGuestName();
+    // --- DI SINI TEMPAT MEMANGGIL NYA ---
+    getGuestName();      // Menjalankan fungsi nama tamu
+    mulaiCountdown();    // Menjalankan fungsi hitung mundur angka pernikahan
 
-    // --- A. SENSOR LAMA (Tetap dipertahankan untuk '#event' dll) ---
+    // --- A. SENSOR SCROLL LAMA (Untuk memicu efek .muncul) ---
     const opsiSensorLama = { threshold: 0.15 };
     const callbackLama = (entries, observer) => {
         entries.forEach((entry) => {
@@ -72,7 +112,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
     const observerLama = new IntersectionObserver(callbackLama, opsiSensorLama);
-    const targetsLama = ['couple', 'event', 'gift']; // ID couple tetap di sini agar sistem lamamu tidak error
+    
+    // PENTING: ID 'gift' sudah dimasukkan ke sini juga agar section gift otomatis bisa bergerak
+    const targetsLama = ['couple', 'event', 'gift']; 
     targetsLama.forEach(id => {
         const element = document.getElementById(id);
         if (element) {
@@ -80,8 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // --- B. SENSOR SCROLL BARU (Hanya untuk elemen .fade-up yang BUKAN di dalam #couple) ---
-    // Contoh: jika nanti kamu pakai kelas .fade-up di section acara, rsvp, atau gift.
+    // --- B. SENSOR SCROLL BARU (.fade-up khusus selain section #couple) ---
     const observerBaru = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -90,12 +131,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }, { threshold: 0.1 });
 
-    // Hanya mengawasi elemen .fade-up yang berada di luar #couple
     document.querySelectorAll('section:not(#couple) .fade-up, div:not(#couple) .fade-up').forEach((el) => {
         observerBaru.observe(el);
     });
 
-    // --- C. NAVIGASI BAWAH (Efek klik) ---
+    // --- C. NAVIGASI BAWAH BAWAAN ---
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(item => {
         item.addEventListener('click', function() {
@@ -106,12 +146,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
-// Fungsi Salin Teks Rekening
+// ==========================================
+// 5. REKENING WEDDING GIFT FUNCTION
+// ==========================================
 function copyText(teks) {
   navigator.clipboard.writeText(teks).then(() => {
     alert("Nomor rekening berhasil disalin: " + teks);
   }).catch(err => {
-    console.error('Gagal menyalin: ', err);
+    console.error('Gagal menyalin rekening: ', err);
   });
 }
