@@ -41,24 +41,22 @@
   });
 
 
-// Mengambil data dari Firebase dan menampilkannya
-onSnapshot(query(collection(db, "rsvp"), orderBy("tanggal", "desc")), (snapshot) => {
-  const listUcapan = document.getElementById('list-ucapan');
-  listUcapan.innerHTML = ""; // Bersihkan daftar lama agar tidak double
+import { collection, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-  snapshot.forEach((doc) => {
-    const data = doc.data();
-    
-    // Membuat elemen kotak ucapan untuk setiap tamu
-    const div = document.createElement('div');
-    div.className = 'wish-item';
-    div.innerHTML = `
-      <div class="wish-card">
-        <strong>${data.nama}</strong> 
-        <span class="status-label">${data.kehadiran === 'hadir' ? '✅ Hadir' : '❌ Tidak Hadir'}</span>
-        <p>${data.pesan}</p>
-      </div>
-    `;
-    listUcapan.appendChild(div);
-  });
+// Mengambil data real-time
+onSnapshot(collection(db, "rsvp"), (snapshot) => {
+    let hadir = 0;
+    let tidakHadir = 0;
+
+    snapshot.forEach((doc) => {
+        const data = doc.data();
+        // Pastikan 'hadir' dan 'tidak-hadir' sama dengan value di <option> HTML-mu
+        if (data.kehadiran === 'hadir') hadir++;
+        else if (data.kehadiran === 'tidak-hadir') tidakHadir++;
+    });
+
+    // Update tampilan HTML
+    document.getElementById('hadirCount').innerText = hadir;
+    document.getElementById('tidakHadirCount').innerText = tidakHadir;
+    document.getElementById('totalCount').innerText = hadir + tidakHadir;
 });
