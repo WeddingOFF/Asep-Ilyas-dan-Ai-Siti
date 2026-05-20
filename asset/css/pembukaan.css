@@ -215,6 +215,17 @@
   transform: translateY(0); /* Kembali ke posisi semula */
 }
 
+/* Pastikan ayat tetap muncul meskipun belum di-scroll */
+.verse-container.fade-up {
+    opacity: 1 !important; /* Paksa muncul */
+    transform: translateY(0) !important;
+}
+
+/* Jika kamu ingin ayat tetap punya animasi saat scroll, 
+   pastikan class fade-up di verse-container tidak berbenturan dengan observer */
+
+
+
 /* Sesuaikan delay agar berurutan */
 .verse-container.fade-up { transition-delay: 0.2s; }
 .couple-card.groom.fade-up { transition-delay: 0.4s; }
