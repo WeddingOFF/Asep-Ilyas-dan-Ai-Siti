@@ -13,19 +13,9 @@ function bukaUndangan() {
         musik.play().catch(err => console.log("Musik jalan setelah klik"));
     }
 
-    // --- PAKSA SEMUA ELEMEN DI COUPLE MUNCUL ---
-    // Kita cari semua elemen dengan class 'fade-up' yang ada di dalam #couple
-    const elemenCouple = document.querySelectorAll('#couple .fade-up');
-    elemenCouple.forEach((el) => {
-        el.classList.add('visible'); // Ini perintah untuk memunculkan animasi
-    });
-
-    // Gulir ke atas
-    setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 500);
+    // HAPUS bagian 'elemenCouple' yang dulu kita paksa muncul (requestAnimationFrame)
+    // HAPUS bagian 'setTimeout' yang scrollIntoView
 }
-
 
 
 
@@ -109,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const observerLama = new IntersectionObserver(callbackLama, opsiSensorLama);
     
     // PENTING: ID 'gift' sudah dimasukkan ke sini juga agar section gift otomatis bisa bergerak
-    const targetsLama = ['event', 'gift']; 
+    const targetsLama = ['couple', 'event', 'gift']; 
     targetsLama.forEach(id => {
         const element = document.getElementById(id);
         if (element) {
