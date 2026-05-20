@@ -13,8 +13,11 @@ function bukaUndangan() {
         musik.play().catch(err => console.log("Musik jalan setelah klik"));
     }
 
-    // HAPUS bagian 'elemenCouple' yang dulu kita paksa muncul (requestAnimationFrame)
-    // HAPUS bagian 'setTimeout' yang scrollIntoView
+    // --- PAKSA AYAT MUNCUL SAAT KLIK BUKA ---
+    const ayat = document.querySelector('.verse-container');
+    if (ayat) {
+        ayat.classList.add('visible'); // Ini memicu opacity jadi 1
+    }
 }
 
 
