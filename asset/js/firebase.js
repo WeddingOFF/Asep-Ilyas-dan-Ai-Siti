@@ -40,17 +40,25 @@
     }
   });
 
-  // 3. Update Statistik Real-time
-  onSnapshot(collection(db, "rsvp"), (snapshot) => {
-    let hadir = 0;
-    let tidakHadir = 0;
 
-    snapshot.forEach((doc) => {
-      if (doc.data().kehadiran === 'hadir') hadir++;
-      else if (doc.data().kehadiran === 'tidak-hadir') tidakHadir++;
-    });
+// Mengambil data dari Firebase dan menampilkannya
+onSnapshot(query(collection(db, "rsvp"), orderBy("tanggal", "desc")), (snapshot) => {
+  const listUcapan = document.getElementById('list-ucapan');
+  listUcapan.innerHTML = ""; // Bersihkan daftar lama agar tidak double
 
-    document.getElementById('hadirCount').innerText = hadir;
-    document.getElementById('tidakHadirCount').innerText = tidakHadir;
-    document.getElementById('totalCount').innerText = hadir + tidakHadir;
+  snapshot.forEach((doc) => {
+    const data = doc.data();
+    
+    // Membuat elemen kotak ucapan untuk setiap tamu
+    const div = document.createElement('div');
+    div.className = 'wish-item';
+    div.innerHTML = `
+      <div class="wish-card">
+        <strong>${data.nama}</strong> 
+        <span class="status-label">${data.kehadiran === 'hadir' ? '✅ Hadir' : '❌ Tidak Hadir'}</span>
+        <p>${data.pesan}</p>
+      </div>
+    `;
+    listUcapan.appendChild(div);
   });
+});
