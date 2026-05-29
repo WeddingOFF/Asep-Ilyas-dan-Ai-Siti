@@ -174,8 +174,8 @@ body.buka-scroll {
 
 .couple-name {
   font-family: 'Poppins', sans-serif; 
-  /* DIKECILKAN: Dari 38px menjadi 28px agar nama bersinar panjang muat */
-  font-size: 28px; 
+  /* DIKECILKAN LAGI UNTUK DESKTOP/LAPTOP: Dari 28px menjadi 24px */
+  font-size: 24px; 
   font-weight: 700;
   text-transform: capitalize; 
   line-height: 1.2;
@@ -218,7 +218,7 @@ body.buka-scroll {
 }
 
 .nick-groom { margin-left: 20px; }
-.nick-bride { margin-right: 20px; }
+.nick-bride { margin-right: 70px; }
 
 /* --- TANGGAL ACARA --- */
 .save-date {
@@ -321,8 +321,8 @@ body.buka-scroll {
   }
   
   .couple-name {
-    /* DIKECILKAN UNTUK HP: Dari 32px menjadi 22px */
-    font-size: 22px; 
+    /* DIKECILKAN LAGI UNTUK HP: Dari 22px menjadi 18px */
+    font-size: 18px; 
   }
   
   .ampersand {
@@ -378,8 +378,8 @@ body.buka-scroll {
 @media screen and (max-width: 360px) {
   .title-text { font-size: 32px; top: 10vh; }
   
-  /* DIKECILKAN UNTUK HP KECIL: Dari 28px menjadi 20px */
-  .couple-name { font-size: 20px; }
+  /* DIKECILKAN LAGI UNTUK HP KECIL: Dari 20px menjadi 16px */
+  .couple-name { font-size: 16px; }
   
   .ampersand { font-size: 32px; }
   
