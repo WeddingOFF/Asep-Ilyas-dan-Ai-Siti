@@ -349,7 +349,7 @@ body.buka-scroll {
 
   .guest-box {
     /* ATUR TINGGI BOX TAMU DI SINI KHUSUS UNTUK HP */
-    bottom: 12%; 
+    bottom: 25%; 
     
     left: 25px;
   }
@@ -362,7 +362,7 @@ body.buka-scroll {
 
   .open-btn {
     /* ATUR TINGGI TOMBOL DI SINI KHUSUS UNTUK HP */
-    bottom: 4%; 
+    bottom: 15%; 
     
     padding: 12px 30px; 
     font-size: 14px;
@@ -383,4 +383,27 @@ body.buka-scroll {
   .save-date { bottom: 25%; font-size: 20px; }
   .guest-box { bottom: 13%; } 
   .open-btn { bottom: 4%; }
+}
+
+/* --- STYLE UNTUK NAMA PANGGILAN --- */
+.nickname {
+  display: block; /* Memaksa nama panggilan turun ke baris baru */
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px; /* Ukuran lebih kecil dari nama utama */
+  font-weight: 400; /* Font reguler, tidak ditebalkan */
+  color: #dce7ff; /* Warna putih kebiruan yang lebih soft */
+  margin-top: 2px; /* Jarak antara nama utama dan nama panggilan */
+  text-transform: capitalize; /* Memastikan format huruf kapital di awal kata */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Bayangan agar terbaca di atas foto */
+}
+
+/* =================================================================
+   MEDIA QUERY: PENYESUAIAN NAMA PANGGILAN UNTUK MOBILE/HP
+   (Gabungkan ini ke dalam @media screen and (max-width: 767px) yang sudah ada 
+   atau letakkan saja paling bawah)
+   ================================================================= */
+@media screen and (max-width: 767px) {
+  .nickname {
+    font-size: 14px; /* Ukuran disesuaikan agar rapi di layar HP */
+  }
 }
