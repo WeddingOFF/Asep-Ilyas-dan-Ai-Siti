@@ -381,8 +381,8 @@ body.buka-scroll {
   
   /* Jika di HP super kecil posisinya bertabrakan, atur juga di sini */
   .save-date { bottom: 25%; font-size: 20px; }
-  .guest-box { bottom: 13%; } 
-  .open-btn { bottom: 4%; }
+  .guest-box { bottom: 25%; } 
+  .open-btn { bottom: 15%; }
 }
 
 /* --- STYLE UNTUK NAMA PANGGILAN --- */
