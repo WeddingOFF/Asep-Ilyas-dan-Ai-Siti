@@ -420,11 +420,11 @@ body.buka-scroll {
 @media screen and (max-width: 767px) {
   
   .nick-groom {
-    margin-left: 15px; /* Atur angka geser untuk "M Adul" di layar HP */
+    margin-left: 50px; /* Atur angka geser untuk "M Adul" di layar HP */
   }
 
   .nick-bride {
-    margin-right: 15px; /* Atur angka geser untuk "Cui" di layar HP */
+    margin-right: 30px; /* Atur angka geser untuk "Cui" di layar HP */
   }
 
 }
