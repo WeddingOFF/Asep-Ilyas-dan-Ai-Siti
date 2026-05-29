@@ -115,7 +115,7 @@ body.buka-scroll {
   height: 100%;
   z-index: 999;
   color: white;
-  padding: 0; 
+  padding: 0; /* Dibuat 0 agar penempatan absolute berfungsi presisi hingga ke tepi */
   box-sizing: border-box;
   transition: opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1), transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
 }
@@ -125,7 +125,7 @@ body.buka-scroll {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   display: block;
-  pointer-events: none; 
+  pointer-events: none; /* Mencegah container membentur klik ke layer bawah */
 }
 
 /* Aktifkan kembali fungsi klik untuk area tombol & nama tamu */
@@ -142,12 +142,12 @@ body.buka-scroll {
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
-  color: #666; 
+  color: #666; /* Warna abu gelap sesuai desain */
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-/* 2. The Wedding Of: Posisi Tengah Atas */
+/* 2. The Wedding Of: Posisi Tengah Atas (di bawah Welcome To) */
 .title-text {
   position: absolute;
   top: 8.5vh; 
@@ -158,14 +158,14 @@ body.buka-scroll {
   font-weight: 400;
   text-align: center;
   width: 100%;
-  color: #1a1a74; 
+  color: #1a1a74; /* Warna Biru Navy sesuai desain */
   text-shadow: none;
 }
 
-/* --- LAYOUT NAMA PENGANTIN --- */
+/* --- PERBAIKAN TOTAL LAYOUT NAMA (Pria Kiri, Wanita Kanan) --- */
 .couple-name-container {
   position: absolute;
-  top: 42%; 
+  top: 42%; /* Posisi di tengah layar */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -174,44 +174,44 @@ body.buka-scroll {
 }
 
 .couple-name {
-  font-family: 'Poppins', sans-serif; 
+  font-family: 'Poppins', sans-serif; /* Mengubah Algerian menjadi font modern */
   font-size: 38px; 
   font-weight: 700;
   text-transform: capitalize; 
   line-height: 1.2;
   color: #ffffff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); 
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Bayangan agar terbaca di foto */
 }
 
+/* Nama Pria (Kiri) */
 .couple-name.groom {
   text-align: left; 
   align-self: flex-start;
   padding: 0;
 }
 
+/* Simbol Dan (&) (Tengah Biru) */
 .ampersand {
   font-family: 'Poppins', sans-serif;
   font-size: 45px;
-  align-self: center; 
+  align-self: center; /* Diposisikan presisi di tengah antara nama */
   margin: -5px 0;
   color: #1a1a74;
   text-shadow: none;
 }
 
+/* Nama Wanita (Kanan) */
 .couple-name.bride {
   text-align: right; 
   align-self: flex-end;
   padding: 0;
-  padding-right: 15%; 
+  padding-right: 15%; /* Menggeser sedikit dari tepi kanan */
 }
 
-/* --- TANGGAL ACARA --- */
+/* 4. Tanggal (Kiri Bawah) */
 .save-date {
   position: absolute;
-  /* ATUR TINGGI TANGGAL DI SINI UNTUK LAYAR BESAR (PC/Laptop) */
-  /* Angka lebih besar = Makin Naik | Angka lebih kecil = Makin Turun */
-  bottom: 25%; 
-  
+  bottom: 25%;
   left: 30px;
   font-family: 'Poppins', sans-serif;
   font-size: 28px;
@@ -221,16 +221,13 @@ body.buka-scroll {
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
 }
 
-/* --- BOX TAMU UNDANGAN (Kpd Yth & Nama Tamu) --- */
+/* --- BOX TAMU UNDANGAN (Kiri Bawah) --- */
 .guest-box {
   position: absolute;
-  /* ATUR TINGGI BOX TAMU DI SINI UNTUK LAYAR BESAR (PC/Laptop) */
-  /* Angka lebih besar = Makin Naik | Angka lebih kecil = Makin Turun */
-  bottom: 12%; 
-  
+  bottom: 11%;
   left: 30px;
   text-align: left;
-  background: transparent; 
+  background: transparent; /* Hilangkan box transparan bawaan awal */
   padding: 0;
   border: none;
   backdrop-filter: none;
@@ -248,8 +245,8 @@ body.buka-scroll {
 .guest-name {
   font-size: 18px;
   font-weight: 700;
-  color: #444; 
-  background: #ffffff; 
+  color: #444; /* Warna font gelap pada area putih */
+  background: #ffffff; /* Box putih solid */
   padding: 12px 30px;
   border-radius: 12px;
   display: inline-block;
@@ -259,19 +256,16 @@ body.buka-scroll {
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
-/* --- TOMBOL BUKA UNDANGAN --- */
+/* TOMBOL BUKA UNDANGAN (Tengah Bawah) */
 .open-btn {
   position: absolute;
-  /* ATUR TINGGI TOMBOL DI SINI UNTUK LAYAR BESAR (PC/Laptop) */
-  /* Angka lebih besar = Makin Naik | Angka lebih kecil = Makin Turun */
-  bottom: 3.5%; 
-  
+  bottom: 3.5%;
   left: 50%;
   transform: translateX(-50%);
   padding: 12px 40px;
   border: none;
   border-radius: 50px;
-  background: #2b3bfa; 
+  background: #2b3bfa; /* Biru terang solid */
   color: white;
   font-size: 15px;
   font-weight: 500;
@@ -284,6 +278,7 @@ body.buka-scroll {
 
 .open-btn:hover {
   box-shadow: 0 6px 20px rgba(43, 59, 250, 0.6);
+  /* Penyesuaian scale agar tetap di tengah saat dihover */
   transform: translateX(-50%) scale(1.05); 
 }
 
@@ -322,6 +317,7 @@ body.buka-scroll {
     font-size: 38px;
   }
   
+  /* Posisi tata letak area tengah */
   .couple-name-container {
     top: 45%; 
     padding: 0 25px;
@@ -337,33 +333,23 @@ body.buka-scroll {
     padding-right: 5%;
   }
 
-  /* --- MENGATUR TINGGI DI HP/MOBILE --- */
-  
+  /* Posisi area Bawah */
   .save-date {
-    /* ATUR TINGGI TANGGAL DI SINI KHUSUS UNTUK HP */
-    bottom: 23%; 
-    
+    bottom: 23%;
     left: 25px;
     font-size: 24px;
   }
-
   .guest-box {
-    /* ATUR TINGGI BOX TAMU DI SINI KHUSUS UNTUK HP */
-    bottom: 25%; 
-    
+    bottom: 11%;
     left: 25px;
   }
-
   .guest-name {
     font-size: 16px;
     padding: 12px 25px;
     min-width: 150px;
   }
-
   .open-btn {
-    /* ATUR TINGGI TOMBOL DI SINI KHUSUS UNTUK HP */
-    bottom: 15%; 
-    
+    bottom: 3%;
     padding: 12px 30px; 
     font-size: 14px;
     width: 80%; 
@@ -378,53 +364,6 @@ body.buka-scroll {
   .title-text { font-size: 32px; top: 10vh; }
   .couple-name { font-size: 28px; }
   .ampersand { font-size: 32px; }
-  
-  /* Jika di HP super kecil posisinya bertabrakan, atur juga di sini */
-  .save-date { bottom: 25%; font-size: 20px; }
-  .guest-box { bottom: 25%; } 
-  .open-btn { bottom: 15%; }
-}
-
-/* --- STYLE UNTUK NAMA PANGGILAN --- */
-.nickname {
-  display: block; /* Memaksa nama panggilan turun ke baris baru */
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px; /* Ukuran lebih kecil dari nama utama */
-  font-weight: 400; /* Font reguler, tidak ditebalkan */
-  color: #dce7ff; /* Warna putih kebiruan yang lebih soft */
-  margin-top: 2px; /* Jarak antara nama utama dan nama panggilan */
-  text-transform: capitalize; /* Memastikan format huruf kapital di awal kata */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Bayangan agar terbaca di atas foto */
-}
-/* --- Menggeser Nama Panggilan Pria --- */
-.nick-groom {
-  /* Menggeser ke KANAN menjauhi tepi kiri */
-  margin-left: 20px; /* <--- ATUR ANGKA INI: Makin besar angkanya, makin geser ke kanan */
-}
-
-/* --- Menggeser Nama Panggilan Wanita --- */
-.nick-bride {
-  /* Menggeser ke KIRI menjauhi tepi kanan */
-  margin-right: 20px; /* <--- ATUR ANGKA INI: Makin besar angkanya, makin geser ke kiri */
-}
-/* =================================================================
-   MEDIA QUERY: PENYESUAIAN NAMA PANGGILAN UNTUK MOBILE/HP
-   (Gabungkan ini ke dalam @media screen and (max-width: 767px) yang sudah ada 
-   atau letakkan saja paling bawah)
-   ================================================================= */
-@media screen and (max-width: 767px) {
-  .nickname {
-    font-size: 14px; /* Ukuran disesuaikan agar rapi di layar HP */
-  }
-}
-@media screen and (max-width: 767px) {
-  
-  .nick-groom {
-    margin-left: 50px; /* Atur angka geser untuk "M Adul" di layar HP */
-  }
-
-  .nick-bride {
-    margin-right: 30px; /* Atur angka geser untuk "Cui" di layar HP */
-  }
-
+  .save-date { font-size: 20px; bottom: 25%; }
+  .guest-box { bottom: 12%; }
 }
