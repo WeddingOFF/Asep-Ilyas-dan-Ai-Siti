@@ -174,7 +174,8 @@ body.buka-scroll {
 
 .couple-name {
   font-family: 'Poppins', sans-serif; 
-  font-size: 38px; 
+  /* DIKECILKAN: Dari 38px menjadi 28px agar nama bersinar panjang muat */
+  font-size: 28px; 
   font-weight: 700;
   text-transform: capitalize; 
   line-height: 1.2;
@@ -204,7 +205,7 @@ body.buka-scroll {
   padding-right: 15%; 
 }
 
-/* --- STYLE UNTUK NAMA PANGGILAN --- */
+/* --- STYLE UNTUK NAMA PANGGILAN (Tetap sama ukurannya) --- */
 .nickname {
   display: block; 
   font-family: 'Poppins', sans-serif;
@@ -318,18 +319,22 @@ body.buka-scroll {
     top: 45%; 
     padding: 0 25px;
   }
+  
   .couple-name {
-    font-size: 32px; 
+    /* DIKECILKAN UNTUK HP: Dari 32px menjadi 22px */
+    font-size: 22px; 
   }
+  
   .ampersand {
     font-size: 40px;
     margin: -2px 0;
   }
+  
   .couple-name.bride {
     padding-right: 5%;
   }
 
-  /* Ini ukuran nickname di HP (Sesuai kode kamu) */
+  /* Ukuran nickname di HP tetap sama */
   .nickname {
     font-size: 14px; 
   }
@@ -340,8 +345,7 @@ body.buka-scroll {
     margin-right: 30px; 
   }
 
-  /* --- MENGATUR TINGGI DI HP/MOBILE (Kembali ke ukuran kamu!) --- */
-  
+  /* --- MENGATUR TINGGI DI HP/MOBILE --- */
   .save-date {
     bottom: 23%; 
     left: 25px;
@@ -373,7 +377,10 @@ body.buka-scroll {
    ================================================================= */
 @media screen and (max-width: 360px) {
   .title-text { font-size: 32px; top: 10vh; }
-  .couple-name { font-size: 28px; }
+  
+  /* DIKECILKAN UNTUK HP KECIL: Dari 28px menjadi 20px */
+  .couple-name { font-size: 20px; }
+  
   .ampersand { font-size: 32px; }
   
   .save-date { bottom: 25%; font-size: 20px; }
