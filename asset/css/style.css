@@ -115,7 +115,7 @@ body.buka-scroll {
   height: 100%;
   z-index: 999;
   color: white;
-  padding: 0; /* Dibuat 0 agar penempatan absolute berfungsi presisi hingga ke tepi */
+  padding: 0; 
   box-sizing: border-box;
   transition: opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1), transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
 }
@@ -125,7 +125,7 @@ body.buka-scroll {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   display: block;
-  pointer-events: none; /* Mencegah container membentur klik ke layer bawah */
+  pointer-events: none; 
 }
 
 /* Aktifkan kembali fungsi klik untuk area tombol & nama tamu */
@@ -142,12 +142,12 @@ body.buka-scroll {
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
-  color: #666; /* Warna abu gelap sesuai desain */
+  color: #666; 
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-/* 2. The Wedding Of: Posisi Tengah Atas (di bawah Welcome To) */
+/* 2. The Wedding Of: Posisi Tengah Atas */
 .title-text {
   position: absolute;
   top: 8.5vh; 
@@ -158,14 +158,14 @@ body.buka-scroll {
   font-weight: 400;
   text-align: center;
   width: 100%;
-  color: #1a1a74; /* Warna Biru Navy sesuai desain */
+  color: #1a1a74; 
   text-shadow: none;
 }
 
-/* --- PERBAIKAN TOTAL LAYOUT NAMA (Pria Kiri, Wanita Kanan) --- */
+/* --- LAYOUT NAMA PENGANTIN --- */
 .couple-name-container {
   position: absolute;
-  top: 42%; /* Posisi di tengah layar */
+  top: 42%; 
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -174,196 +174,36 @@ body.buka-scroll {
 }
 
 .couple-name {
-  font-family: 'Poppins', sans-serif; /* Mengubah Algerian menjadi font modern */
+  font-family: 'Poppins', sans-serif; 
   font-size: 38px; 
   font-weight: 700;
   text-transform: capitalize; 
   line-height: 1.2;
   color: #ffffff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Bayangan agar terbaca di foto */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); 
 }
 
-/* Nama Pria (Kiri) */
 .couple-name.groom {
   text-align: left; 
   align-self: flex-start;
   padding: 0;
 }
 
-/* Simbol Dan (&) (Tengah Biru) */
 .ampersand {
   font-family: 'Poppins', sans-serif;
   font-size: 45px;
-  align-self: center; /* Diposisikan presisi di tengah antara nama */
+  align-self: center; 
   margin: -5px 0;
   color: #1a1a74;
   text-shadow: none;
 }
 
-/* Nama Wanita (Kanan) */
 .couple-name.bride {
   text-align: right; 
   align-self: flex-end;
   padding: 0;
-  padding-right: 15%; /* Menggeser sedikit dari tepi kanan */
+  padding-right: 15%; 
 }
 
-/* 4. Tanggal (Kiri Bawah) */
-.save-date {
-  position: absolute;
-  bottom: 25%;
-  left: 30px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 28px;
-  font-weight: bold;
-  color: #ffffff;
-  text-align: left;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-}
-
-/* --- BOX TAMU UNDANGAN (Kiri Bawah) --- */
+/* --- BOX TAMU UNDANGAN (Dinaikkan Posisinya) --- */
 .guest-box {
-  position: absolute;
-  bottom: 11%;
-  left: 30px;
-  text-align: left;
-  background: transparent; /* Hilangkan box transparan bawaan awal */
-  padding: 0;
-  border: none;
-  backdrop-filter: none;
-  max-width: 90%;
-}
-
-.guest-title {
-  font-size: 14px;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-}
-
-.guest-name {
-  font-size: 18px;
-  font-weight: 700;
-  color: #444; /* Warna font gelap pada area putih */
-  background: #ffffff; /* Box putih solid */
-  padding: 12px 30px;
-  border-radius: 12px;
-  display: inline-block;
-  min-width: 180px;
-  text-align: center;
-  text-shadow: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
-
-/* TOMBOL BUKA UNDANGAN (Tengah Bawah) */
-.open-btn {
-  position: absolute;
-  bottom: 3.5%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 12px 40px;
-  border: none;
-  border-radius: 50px;
-  background: #2b3bfa; /* Biru terang solid */
-  color: white;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(43, 59, 250, 0.4);
-  transition: 0.3s;
-  display: inline-block;
-  z-index: 99999 !important; 
-}
-
-.open-btn:hover {
-  box-shadow: 0 6px 20px rgba(43, 59, 250, 0.6);
-  /* Penyesuaian scale agar tetap di tengah saat dihover */
-  transform: translateX(-50%) scale(1.05); 
-}
-
-/* --- EFEK ANIMASI SAAT GERBANG TERBUKA --- */
-.cover-section.hidden .cover-content {
-  opacity: 0;
-  transform: scale(0.95);
-  pointer-events: none;
-}
-.cover-section.hidden .cover-background,
-.cover-section.hidden .cover-gradient-overlay {
-  opacity: 0;
-}
-.cover-section.hidden .gate-left {
-  transform: translateX(-100%);
-}
-.cover-section.hidden .gate-right {
-  transform: translateX(100%);
-}
-.cover-section.hidden {
-  pointer-events: none;
-  visibility: hidden;
-  transition: visibility 0s linear 1.2s; 
-}
-
-/* =================================================================
-   MEDIA QUERY: RESPONSIF UNTUK MOBILE (Layar di bawah 768px)
-   ================================================================= */
-@media screen and (max-width: 767px) {
-  .welcome-text {
-    top: 6vh;
-    font-size: 12px;
-  }
-  .title-text {
-    top: 9vh; 
-    font-size: 38px;
-  }
-  
-  /* Posisi tata letak area tengah */
-  .couple-name-container {
-    top: 45%; 
-    padding: 0 25px;
-  }
-  .couple-name {
-    font-size: 32px; 
-  }
-  .ampersand {
-    font-size: 40px;
-    margin: -2px 0;
-  }
-  .couple-name.bride {
-    padding-right: 5%;
-  }
-
-  /* Posisi area Bawah */
-  .save-date {
-    bottom: 23%;
-    left: 25px;
-    font-size: 24px;
-  }
-  .guest-box {
-    bottom: 11%;
-    left: 25px;
-  }
-  .guest-name {
-    font-size: 16px;
-    padding: 12px 25px;
-    min-width: 150px;
-  }
-  .open-btn {
-    bottom: 3%;
-    padding: 12px 30px; 
-    font-size: 14px;
-    width: 80%; 
-    max-width: 280px;
-  }
-}
-
-/* =================================================================
-   MEDIA QUERY TAMBAHAN: KHUSUS HP KECIL (Lebar di bawah 360px)
-   ================================================================= */
-@media screen and (max-width: 360px) {
-  .title-text { font-size: 32px; top: 10vh; }
-  .couple-name { font-size: 28px; }
-  .ampersand { font-size: 32px; }
-  .save-date { font-size: 20px; bottom: 25%; }
-  .guest-box { bottom: 12%; }
-}
