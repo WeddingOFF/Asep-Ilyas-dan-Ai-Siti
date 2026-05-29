@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -17,19 +17,19 @@ body.buka-scroll {
 
 /* --- SECTION COVER UTAMA --- */
 .cover-section {
-  position: fixed; /* Membuka cover sebagai lapisan mutlak di atas seluruh halaman */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh; /* Memenuhi satu layar penuh */
-  z-index: 9999; /* Memastikan cover berada di lapisan paling atas */
+  height: 100vh; 
+  z-index: 9999; 
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-/* --- NEW: BACKGROUND FOTO UTAMA (FULL SCREEN) --- */
+/* --- BACKGROUND FOTO UTAMA (FULL SCREEN) --- */
 .cover-background {
   position: absolute;
   top: 0;
@@ -38,18 +38,17 @@ body.buka-scroll {
   height: 100%;
   background-size: cover;
   background-position: center;
-  z-index: 6; /* Di atas gerbang asli agar langsung terlihat */
+  z-index: 6; 
   transition: opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-/* --- NEW: GRADASI BIRU CERAH DI BAWAH --- */
+/* --- GRADASI BIRU CERAH DI BAWAH --- */
 .cover-gradient-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 65%; /* Menutupi 65% area bawah untuk tempat tulisan */
-  /* Gradasi dari biru cerah pekat di bawah ke transparan di tengah */
+  height: 65%; 
   background: linear-gradient(to top, 
                               rgba(7, 20, 39, 1) 0%, 
                               rgba(7, 20, 39, 0.85) 45%, 
@@ -62,50 +61,22 @@ body.buka-scroll {
 .gate-panel {
   position: absolute;
   top: 0;
-  width: 50%; /* Masing-masing panel mengambil setengah lebar layar */
+  width: 50%; 
   height: 100%;
-  background: linear-gradient(180deg, #071427, #0b1f3a, #071427); /* Warna gradasi navy asli kamu */
-  z-index: 5; /* Di bawah background utama & konten */
-  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); /* Efek pergerakan gerbang yang elegan */
+  background: linear-gradient(180deg, #071427, #0b1f3a, #071427); 
+  z-index: 5; 
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); 
   box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.03); 
 }
 
-/* Posisi Gerbang Kiri */
 .gate-left {
   left: 0;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Posisi Gerbang Kanan */
 .gate-right {
   right: 0;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* --- KONTEN DI DALAM COVER --- */
-.cover-content {
-  position: absolute; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999; /* Tetap di lapisan paling atas */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end; /* DIUBAH: Mendorong konten teks ke bawah agar pas di area gradasi */
-  align-items: center;
-  color: white;
-  padding: 30px 20px 60px 20px; /* Ditambah padding bawah agar posisi tombol ideal */
-  transition: opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1), transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-/* NEW: LAYOUT PEMBUNGKUS TEKS DI ATAS GRADASI */
-.text-layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
 }
 
 /* GLOW */
@@ -144,258 +115,255 @@ body.buka-scroll {
   height: 100%;
   z-index: 999;
   color: white;
-  padding: 30px 25px;
+  padding: 0; /* Dibuat 0 agar penempatan absolute berfungsi presisi hingga ke tepi */
   box-sizing: border-box;
+  transition: opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1), transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-/* 1. Welcome To: Menggunakan GREAT VIBES (Tulisan Sambung) */
+/* Container Pasif */
+.text-layout, .bottom-layout {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: block;
+  pointer-events: none; /* Mencegah container membentur klik ke layer bawah */
+}
+
+/* Aktifkan kembali fungsi klik untuk area tombol & nama tamu */
+.guest-box, .open-btn {
+  pointer-events: auto;
+}
+
+/* 1. Welcome To: Posisi Tengah Atas */
 .welcome-text {
   position: absolute;
-  top: 50px;
-  left: 25px;
-  font-family: 'Great Vibes', cursive;
-  font-size: 28px; /* Ukuran disesuaikan karena font script cenderung tipis */
-  color: #d9e6ff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  top: 5vh;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #666; /* Warna abu gelap sesuai desain */
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-/* 2. The Wedding Of: Menggunakan GREAT VIBES (Tengah Layar / Badan) */
+/* 2. The Wedding Of: Posisi Tengah Atas (di bawah Welcome To) */
 .title-text {
   position: absolute;
-  top: 20%; 
-  left: 30%;
-  transform: translate(-50%, -50%);
+  top: 8.5vh; 
+  left: 50%;
+  transform: translateX(-50%);
   font-family: 'Great Vibes', cursive;
-  font-size: 38px; /* Dibuat agak besar agar terlihat anggun di tengah */
+  font-size: 46px;
   font-weight: 400;
   text-align: center;
   width: 100%;
-  color: white;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  color: #1a1a74; /* Warna Biru Navy sesuai desain */
+  text-shadow: none;
 }
 
-
-/* 3. Layout Bawah (Nama, Tanggal, Tombol) */
-.bottom-layout {
+/* --- PERBAIKAN TOTAL LAYOUT NAMA (Pria Kiri, Wanita Kanan) --- */
+.couple-name-container {
   position: absolute;
-  bottom: 50px; /* Jarak dari bawah layar */
-  left: 0;
+  top: 42%; /* Posisi di tengah layar */
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0 25px;
-}
-
-/* --- PERBAIKAN TOTAL LAYOUT NAMA (PRIA DI KANAN, WANITA DI KIRI) --- */
-.couple-name-container {
-  width: 100%;
-  position: relative;
-  margin-bottom: 11px;
-  display: block; /* Mengubah dari flex ke block agar tidak saling dorong */
+  padding: 0 30px;
+  box-sizing: border-box;
 }
 
 .couple-name {
-  font-family: 'Algerian', 'Georgia', serif;
-  font-size: 25px; 
-  font-weight: bold;
-  text-transform: uppercase; 
-  line-height: ;
+  font-family: 'Poppins', sans-serif; /* Mengubah Algerian menjadi font modern */
+  font-size: 38px; 
+  font-weight: 700;
+  text-transform: capitalize; 
+  line-height: 1.2;
   color: #ffffff;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
-  width: 100%; /* Memenuhi layar agar text-align berfungsi sempurna */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Bayangan agar terbaca di foto */
 }
 
-/* 1. Nama Pria (Di Kanan) */
+/* Nama Pria (Kiri) */
 .couple-name.groom {
-  text-align: right; 
-  padding-left: 158px; /* <--- ATUR ANGKA INI untuk menggeser nama PRIA ke kiri/kanan */
-}
-
-/* 2. Simbol Dan (&) Tetap Aman di Tengah Layar */
-.ampersand {
-  display: block;
-  font-family: 'Algerian', 'Georgia', serif;
-  font-size: 26px;
-  text-align: center; 
-  margin: 10px 0;
-  color: #63c7ff;
-}
-
-/* 3. Nama Wanita (Di Kiri) */
-.couple-name.bride {
   text-align: left; 
-  padding-left: 44px; /* <--- ATUR ANGKA INI untuk menggeser nama WANITA ke kanan/kiri */
-}
-/* 4. Tanggal & Tombol */
-.save-date {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #dce7ff;
-  text-align: center;
-  margin-bottom: 25px;
+  align-self: flex-start;
+  padding: 0;
 }
 
-/* TOMBOL BUKA UNDANGAN (Desain Gradasi Biru Asli Kamu) */
+/* Simbol Dan (&) (Tengah Biru) */
+.ampersand {
+  font-family: 'Poppins', sans-serif;
+  font-size: 45px;
+  align-self: center; /* Diposisikan presisi di tengah antara nama */
+  margin: -5px 0;
+  color: #1a1a74;
+  text-shadow: none;
+}
+
+/* Nama Wanita (Kanan) */
+.couple-name.bride {
+  text-align: right; 
+  align-self: flex-end;
+  padding: 0;
+  padding-right: 15%; /* Menggeser sedikit dari tepi kanan */
+}
+
+/* 4. Tanggal (Kiri Bawah) */
+.save-date {
+  position: absolute;
+  bottom: 25%;
+  left: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: left;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* --- BOX TAMU UNDANGAN (Kiri Bawah) --- */
+.guest-box {
+  position: absolute;
+  bottom: 11%;
+  left: 30px;
+  text-align: left;
+  background: transparent; /* Hilangkan box transparan bawaan awal */
+  padding: 0;
+  border: none;
+  backdrop-filter: none;
+  max-width: 90%;
+}
+
+.guest-title {
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.guest-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #444; /* Warna font gelap pada area putih */
+  background: #ffffff; /* Box putih solid */
+  padding: 12px 30px;
+  border-radius: 12px;
+  display: inline-block;
+  min-width: 180px;
+  text-align: center;
+  text-shadow: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* TOMBOL BUKA UNDANGAN (Tengah Bawah) */
 .open-btn {
-  padding: 14px 35px;
+  position: absolute;
+  bottom: 3.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 40px;
   border: none;
   border-radius: 50px;
-  background: linear-gradient(135deg, #2f7bff, #63c7ff);
+  background: #2b3bfa; /* Biru terang solid */
   color: white;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(74, 144, 255, 0.45);
+  box-shadow: 0 4px 15px rgba(43, 59, 250, 0.4);
   transition: 0.3s;
   display: inline-block;
-  position: relative; 
   z-index: 99999 !important; 
 }
 
-/* Efek Hover Tombol */
 .open-btn:hover {
-  box-shadow: 0 0 30px rgba(99, 199, 255, 0.75);
-  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(43, 59, 250, 0.6);
+  /* Penyesuaian scale agar tetap di tengah saat dihover */
+  transform: translateX(-50%) scale(1.05); 
 }
 
-/* --- EFEK ANIMASI SAAT GERBANG TERBUKA (DIPICU JS) --- */
-
-/* 1. Konten teks & tombol memudar dan mengecil sedikit */
+/* --- EFEK ANIMASI SAAT GERBANG TERBUKA --- */
 .cover-section.hidden .cover-content {
   opacity: 0;
   transform: scale(0.95);
   pointer-events: none;
 }
-
-/* NEW: Background utama & gradasi ikut memudar secara sinkron saat dibuka */
 .cover-section.hidden .cover-background,
 .cover-section.hidden .cover-gradient-overlay {
   opacity: 0;
 }
-
-/* 2. Gerbang Kiri Meluncur Keluar ke Arah Kiri */
 .cover-section.hidden .gate-left {
   transform: translateX(-100%);
 }
-
-/* 3. Gerbang Kanan Meluncur Keluar ke Arah Kanan */
 .cover-section.hidden .gate-right {
   transform: translateX(100%);
 }
-
-/* 4. Menghilangkan total container cover setelah animasi selesai agar tidak menghalangi web */
 .cover-section.hidden {
   pointer-events: none;
   visibility: hidden;
   transition: visibility 0s linear 1.2s; 
 }
 
-
-
-/* --- BOX TAMU UNDANGAN --- */
-.guest-box {
-  text-align: center;
-  margin-bottom: 30px; /* Jarak ke teks tanggal */
-  background: rgba(255, 255, 255, 0.08); /* Kotak transparan tipis */
-  padding: 12px 25px;
-  border-radius: 15px;
-  backdrop-filter: blur(5px); /* Efek kaca blur halus */
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  max-width: 90%;
-}
-
-.guest-title {
-  font-size: 12px;
-  color: #dce7ff;
-  letter-spacing: 1px;
-  margin-bottom: 5px;
-}
-
-.guest-name {
-  font-size: 20px;
-  font-weight: 600;
-  color: #63c7ff; /* Warna biru cerah agar nama tamu stand out */
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-
 /* =================================================================
    MEDIA QUERY: RESPONSIF UNTUK MOBILE (Layar di bawah 768px)
    ================================================================= */
 @media screen and (max-width: 767px) {
-  
-  /* 1. Atur posisi Welcome To agar tidak terlalu mentok ke atas */
   .welcome-text {
-    top: px;
-    left: px;
-    font-size: 22px; /* Disesuaikan ukurannya untuk layar HP */
+    top: 6vh;
+    font-size: 12px;
   }
-
-  /* 2. Atur posisi The Wedding Of di tengah layar HP */
   .title-text {
-    top: %; /* Sedikit dinaikkan agar pas di area dada/badan pada foto potret HP */
-    font-size: px; /* Ukuran font tulisan sambung di HP */
+    top: 9vh; 
+    font-size: 38px;
   }
-
-  /* 3. Atur area layout bawah agar pas dengan tinggi layar HP */
-  .bottom-layout {
-    bottom: 100px; /* Jarak aman dari navigasi bawah HP (seperti bar iPhone/Android) */
-    padding: 0 15px;
+  
+  /* Posisi tata letak area tengah */
+  .couple-name-container {
+    top: 45%; 
+    padding: 0 25px;
   }
-
-  /* 4. Skala Ukuran Nama Pengantin (Algerian) agar tidak kepotong di HP kecil */
   .couple-name {
-    font-size: 26px; /* Diturunkan dari 34px agar pas satu baris di HP */
+    font-size: 32px; 
   }
-
-  /* Geser posisi nama khusus di layar mobile */
-  .couple-name.groom {
-    padding-right: px; /* Jarak nama pria dari tepi kanan HP */
-  }
-
-  .couple-name.bride {
-    padding-left: px; /* Jarak nama wanita dari tepi kiri HP */
-  }
-
   .ampersand {
-    font-size: 22px;
-    margin: 5px 0;
+    font-size: 40px;
+    margin: -2px 0;
+  }
+  .couple-name.bride {
+    padding-right: 5%;
   }
 
-  /* 5. Sesuaikan ukuran Box Tamu di HP */
-  .guest-box {
-    width: 95%; /* Lebih lebar di HP agar muat nama tamu yang panjang */
-    padding: 10px 15px;
-    margin-bottom: px;
-  }
-
-  .guest-name {
-    font-size: 18px; /* Sedikit lebih kecil agar rapi */
-  }
-
-  /* 6. Atur Tanggal dan Tombol Buka Undangan */
+  /* Posisi area Bawah */
   .save-date {
-    font-size: 13px;
-    margin-bottom: 20px;
+    bottom: 23%;
+    left: 25px;
+    font-size: 24px;
   }
-
+  .guest-box {
+    bottom: 11%;
+    left: 25px;
+  }
+  .guest-name {
+    font-size: 16px;
+    padding: 12px 25px;
+    min-width: 150px;
+  }
   .open-btn {
-    padding: 12px 30px; /* Tombol sedikit lebih ramping agar pas digenggam satu jempol */
+    bottom: 3%;
+    padding: 12px 30px; 
     font-size: 14px;
-    width: 80%; /* Membuat tombol proporsional di layar HP */
+    width: 80%; 
     max-width: 280px;
   }
 }
 
 /* =================================================================
-   MEDIA QUERY TAMBAHAN: KHUSUS HP SANGAT KECIL (Lebar di bawah 360px seperti iPhone SE)
+   MEDIA QUERY TAMBAHAN: KHUSUS HP KECIL (Lebar di bawah 360px)
    ================================================================= */
 @media screen and (max-width: 360px) {
-  .welcome-text { font-size: 18px; }
-  .title-text { font-size: 28px; }
-  .couple-name { font-size: 22px; }
-  .guest-name { font-size: 16px; }
+  .title-text { font-size: 32px; top: 10vh; }
+  .couple-name { font-size: 28px; }
+  .ampersand { font-size: 32px; }
+  .save-date { font-size: 20px; bottom: 25%; }
+  .guest-box { bottom: 12%; }
 }
-
-
