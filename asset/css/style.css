@@ -205,5 +205,182 @@ body.buka-scroll {
   padding-right: 15%; 
 }
 
-/* --- BOX TAMU UNDANGAN (Dinaikkan Posisinya) --- */
+/* --- TANGGAL ACARA --- */
+.save-date {
+  position: absolute;
+  /* ATUR TINGGI TANGGAL DI SINI UNTUK LAYAR BESAR (PC/Laptop) */
+  /* Angka lebih besar = Makin Naik | Angka lebih kecil = Makin Turun */
+  bottom: 25%; 
+  
+  left: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: left;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* --- BOX TAMU UNDANGAN (Kpd Yth & Nama Tamu) --- */
 .guest-box {
+  position: absolute;
+  /* ATUR TINGGI BOX TAMU DI SINI UNTUK LAYAR BESAR (PC/Laptop) */
+  /* Angka lebih besar = Makin Naik | Angka lebih kecil = Makin Turun */
+  bottom: 12%; 
+  
+  left: 30px;
+  text-align: left;
+  background: transparent; 
+  padding: 0;
+  border: none;
+  backdrop-filter: none;
+  max-width: 90%;
+}
+
+.guest-title {
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.guest-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #444; 
+  background: #ffffff; 
+  padding: 12px 30px;
+  border-radius: 12px;
+  display: inline-block;
+  min-width: 180px;
+  text-align: center;
+  text-shadow: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* --- TOMBOL BUKA UNDANGAN --- */
+.open-btn {
+  position: absolute;
+  /* ATUR TINGGI TOMBOL DI SINI UNTUK LAYAR BESAR (PC/Laptop) */
+  /* Angka lebih besar = Makin Naik | Angka lebih kecil = Makin Turun */
+  bottom: 3.5%; 
+  
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 40px;
+  border: none;
+  border-radius: 50px;
+  background: #2b3bfa; 
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(43, 59, 250, 0.4);
+  transition: 0.3s;
+  display: inline-block;
+  z-index: 99999 !important; 
+}
+
+.open-btn:hover {
+  box-shadow: 0 6px 20px rgba(43, 59, 250, 0.6);
+  transform: translateX(-50%) scale(1.05); 
+}
+
+/* --- EFEK ANIMASI SAAT GERBANG TERBUKA --- */
+.cover-section.hidden .cover-content {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+}
+.cover-section.hidden .cover-background,
+.cover-section.hidden .cover-gradient-overlay {
+  opacity: 0;
+}
+.cover-section.hidden .gate-left {
+  transform: translateX(-100%);
+}
+.cover-section.hidden .gate-right {
+  transform: translateX(100%);
+}
+.cover-section.hidden {
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0s linear 1.2s; 
+}
+
+/* =================================================================
+   MEDIA QUERY: RESPONSIF UNTUK MOBILE (Layar di bawah 768px)
+   ================================================================= */
+@media screen and (max-width: 767px) {
+  .welcome-text {
+    top: 6vh;
+    font-size: 12px;
+  }
+  .title-text {
+    top: 9vh; 
+    font-size: 38px;
+  }
+  
+  .couple-name-container {
+    top: 45%; 
+    padding: 0 25px;
+  }
+  .couple-name {
+    font-size: 32px; 
+  }
+  .ampersand {
+    font-size: 40px;
+    margin: -2px 0;
+  }
+  .couple-name.bride {
+    padding-right: 5%;
+  }
+
+  /* --- MENGATUR TINGGI DI HP/MOBILE --- */
+  
+  .save-date {
+    /* ATUR TINGGI TANGGAL DI SINI KHUSUS UNTUK HP */
+    bottom: 23%; 
+    
+    left: 25px;
+    font-size: 24px;
+  }
+
+  .guest-box {
+    /* ATUR TINGGI BOX TAMU DI SINI KHUSUS UNTUK HP */
+    bottom: 12%; 
+    
+    left: 25px;
+  }
+
+  .guest-name {
+    font-size: 16px;
+    padding: 12px 25px;
+    min-width: 150px;
+  }
+
+  .open-btn {
+    /* ATUR TINGGI TOMBOL DI SINI KHUSUS UNTUK HP */
+    bottom: 4%; 
+    
+    padding: 12px 30px; 
+    font-size: 14px;
+    width: 80%; 
+    max-width: 280px;
+  }
+}
+
+/* =================================================================
+   MEDIA QUERY TAMBAHAN: KHUSUS HP KECIL (Lebar di bawah 360px)
+   ================================================================= */
+@media screen and (max-width: 360px) {
+  .title-text { font-size: 32px; top: 10vh; }
+  .couple-name { font-size: 28px; }
+  .ampersand { font-size: 32px; }
+  
+  /* Jika di HP super kecil posisinya bertabrakan, atur juga di sini */
+  .save-date { bottom: 25%; font-size: 20px; }
+  .guest-box { bottom: 13%; } 
+  .open-btn { bottom: 4%; }
+}
