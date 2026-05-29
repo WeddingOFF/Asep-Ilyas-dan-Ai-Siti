@@ -396,7 +396,17 @@ body.buka-scroll {
   text-transform: capitalize; /* Memastikan format huruf kapital di awal kata */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Bayangan agar terbaca di atas foto */
 }
+/* --- Menggeser Nama Panggilan Pria --- */
+.nick-groom {
+  /* Menggeser ke KANAN menjauhi tepi kiri */
+  margin-left: 20px; /* <--- ATUR ANGKA INI: Makin besar angkanya, makin geser ke kanan */
+}
 
+/* --- Menggeser Nama Panggilan Wanita --- */
+.nick-bride {
+  /* Menggeser ke KIRI menjauhi tepi kanan */
+  margin-right: 20px; /* <--- ATUR ANGKA INI: Makin besar angkanya, makin geser ke kiri */
+}
 /* =================================================================
    MEDIA QUERY: PENYESUAIAN NAMA PANGGILAN UNTUK MOBILE/HP
    (Gabungkan ini ke dalam @media screen and (max-width: 767px) yang sudah ada 
@@ -406,4 +416,15 @@ body.buka-scroll {
   .nickname {
     font-size: 14px; /* Ukuran disesuaikan agar rapi di layar HP */
   }
+}
+@media screen and (max-width: 767px) {
+  
+  .nick-groom {
+    margin-left: 15px; /* Atur angka geser untuk "M Adul" di layar HP */
+  }
+
+  .nick-bride {
+    margin-right: 15px; /* Atur angka geser untuk "Cui" di layar HP */
+  }
+
 }
