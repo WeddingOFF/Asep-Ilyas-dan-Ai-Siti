@@ -187,3 +187,57 @@
   transform: translateY(0);
   transition-delay: 0.7s;
 }
+
+
+/* ==========================================
+   TAMBAHAN KELAS UNTUK SUSUNAN ACARA 
+========================================== */
+.event-schedule-wrapper {
+  margin-bottom: 25px;
+}
+
+/* Mengatur estetika teks dan list di dalam kartu susunan acara */
+.schedule-card .schedule-header h3 {
+  color: #ffd700; /* Warna Emas senada dengan judul utama */
+}
+
+.schedule-list {
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.schedule-list li span {
+  color: #cfd8dc;
+}
+
+.special-schedule h4 {
+  color: #63c7ff; /* Aksen Biru Terang untuk Tausiah Malam */
+}
+
+.special-schedule p {
+  color: #cfd8dc;
+  line-height: 1.6;
+}
+
+/* --- ANIMASI SCROLL UNTUK SUSUNAN ACARA --- */
+
+/* 1. Posisi Awal (Disembunyikan sebelum scroll dari bawah) */
+.event-schedule-wrapper {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 2. Posisi Muncul (Dijalankan otomatis saat kelas .muncul aktif) 
+   Menggunakan delay 0.6s agar muncul tepat setelah kartu Akad & Resepsi selesai dianimasikan */
+#event.muncul .event-schedule-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+/* Menyesuaikan delay kartu lokasi agar muncul paling akhir setelah susunan acara */
+#event.muncul .event-location-wrapper {
+  transition-delay: 0.8s;
+}
